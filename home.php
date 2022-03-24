@@ -21,7 +21,7 @@ session_start();
 
 <body>
     <div class="page-title-container">
-        <h2 class="page-title">ATL SHOE BOUTIQUE</h2>
+        <h2 class="page-title">ATLANTA BOOKSTORE</h2>
     </div>
     <!--navigation---------->
     <nav>
@@ -95,11 +95,11 @@ session_start();
         <img src="images/pexels-richard-solano-5796567.jpg" alt="">
         <div class="homepage-content-container">
             <div class="left-home-content">
-                <h5>DECEMBER FEATURED DROP NOW LIVE</h5>
+                <h5>DECEMBER EXCLUSIVE RELEASES NOW LIVE</h5>
                 <a href="featured.php"><button class="home-buttons" >SHOP THE DROP</button></a>
             </div>
             <div class="right-home-content">
-                <h5>SHOP OUR LATEST STYLES</h5>
+                <h5>SHOP OUR MARKETPLACE</h5>
                 <a href="marketplace.php"><button class="home-buttons" >ENTER THE MARKETPLACE</button></a>
 
             </div>
@@ -107,8 +107,8 @@ session_start();
     </div>
 
     <div class="subscribe">
-        <h2 class="subscribe__title">SUBSCRIBE TO THE ASB NEWSLETTER</h2>
-        <p class="subscribe__copy">Subscribe to keep up with the latest drops and exciting updates.</p>
+        <h2 class="subscribe__title">SUBSCRIBE TO THE ATLANTA BOOKSTORE NEWSLETTER</h2>
+        <p class="subscribe__copy">Subscribe to keep up with the latest releases exciting updates.</p>
         <div class="form">
             <input type="email" class="form__email" placeholder="Enter your email address" />
             <button class="form__button">Send</button>
