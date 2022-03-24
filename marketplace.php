@@ -24,7 +24,7 @@ session_start();
 <body>
     <div>
         <div class="page-title-container">
-            <h2 class="page-title">ATL CLOTHING BOUTIQUE</h2>
+            <h2 class="page-title">ATLANTA BOOKSTORE</h2>
         </div>
         <nav>
         <!---menu-bar------>

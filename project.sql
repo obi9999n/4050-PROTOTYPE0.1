@@ -71,14 +71,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `imagePath`) VALUES
-(6, 2, 'shoes', 'Cool Grey 11 8M', '300.00', 4, 'images/coolgrey11.png'),
-(7, 2, 'shoes', 'Patent AJ1 9M', '320.00', 7, 'images/patentbred1.png'),
-(8, 2, 'shoes', 'Yeezy 500 Brwn 7M', '260.00', 5, 'images/yeezy500brwn.png'),
-(9, 2, 'shoes', 'Nike Dunk EMB 12M', '340.00', 3, 'images/dunkemb.png'),
-(11, 1, 'shoes', 'Balenciaga Triple S Drk Grn', '700.00', 0, 'images/baltriples.png'),
-(12, 1, 'shoes', 'Balenciaga Track Sneaker Indigo', '800.00', 0, 'images/baltrksnkr.png'),
-(13, 1, 'shoes', 'OW MOMA AF1 10M', '6000.00', 0, 'images/momaaf12.png'),
-(15, 1, 'shoes', 'VLONE AF1 8.5M', '4500.00', 0, 'images/vloneaf1.png');
+(6, 2, 'shoes', 'PLACEHOLDER', '300.00', 4, 'images/placeholder.png'),
+(7, 2, 'shoes', 'PLACEHOLDER', '320.00', 7, 'images/placeholder.png'),
+(8, 2, 'shoes', 'PLACEHOLDER', '260.00', 5, 'images/placeholder.png'),
+(11, 1, 'shoes', 'PLACEHOLDER', '700.00', 0, 'images/placeholder.png'),
+(12, 1, 'shoes', 'PLACEHOLDER', '800.00', 0, 'images/placeholder.png'),
+(13, 1, 'shoes', 'PLACEHOLDER', '6000.00', 0, 'images/placeholder.png'),
+(15, 1, 'shoes', 'PLACEHOLDER', '4500.00', 0, 'images/placeholder.png');
 
 -- --------------------------------------------------------
 
