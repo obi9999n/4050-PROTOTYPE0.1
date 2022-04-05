@@ -30,7 +30,7 @@
 </head>
 <body>
 <div class="page-title-container">
-        <h2 class="page-title">ATL SHOE BOUTIQUE</h2>
+        <h2 class="page-title">ATLANTA BOOKSTORE</h2>
     </div>
     <!--navigation---------->
     <nav>

@@ -63,6 +63,10 @@ session_start();
                 <?php } ?> 
                 <a href="home.php">Back to home!</a><br><br>
                 <a href="logout.php">Click here to logout!</a><br>
+                <?php $user_type = $user_data['user_type']; ?>
+                <?php if ($user_type == 1) { ?>
+                    <br><a href="admin.php">Admin controls</a><br>
+                <?php } ?>
             </form>
         </div>       
     </body>

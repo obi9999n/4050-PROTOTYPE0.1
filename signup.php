@@ -14,7 +14,7 @@ session_start();
         if(!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
             // save to database
             $user_id = random_num(20);
-            $query = "insert into users (user_id, user_name, password) values ('$user_id', '$user_name', '$password')";
+            $query = "insert into users (user_id, user_name, password, user_type) values ('$user_id', '$user_name', '$password', '0')";
             
             // save
             mysqli_query($con, $query);
@@ -46,7 +46,7 @@ session_start();
 </head>
 <body>
 <div class="page-title-container">
-        <h2 class="page-title">ATL CLOTHING BOUTIQUE</h2>
+        <h2 class="page-title">ATLANTA BOOKSTORE</h2>
     </div>
     <!--navigation---------->
     <nav>
