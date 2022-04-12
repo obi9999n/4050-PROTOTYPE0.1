@@ -182,5 +182,5 @@ session_start();
     $(document).on('click','.search-cancel',function(){
         $('.search-bar').removeClass('search-bar-active')
     });
-    </script>
+    </script> 
 </body>
