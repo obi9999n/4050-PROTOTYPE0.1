@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
-<<<<<<< HEAD
--- Generation Time: Apr 05, 2022 at 05:11 PM
-=======
 -- Generation Time: Apr 12, 2022 at 10:51 PM
->>>>>>> darius-branch
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -77,11 +73,8 @@ CREATE TABLE `products` (
   `ISBN` int(13) NOT NULL,
   `listPrice` decimal(10,2) DEFAULT NULL,
   `stock` int(11) NOT NULL,
-<<<<<<< HEAD
-=======
   `genre` varchar(100) NOT NULL,
   `isBestSeller` int(11) NOT NULL,
->>>>>>> darius-branch
   `imagePath` varchar(100) NOT NULL,
   `inCart` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -90,19 +83,6 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-<<<<<<< HEAD
-INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `imagePath`, `inCart`) VALUES
-(1, 1, 'book', 'Diary of a Wimpy Kid', '10.00', 0, 'images/diary_of_a_wimpy_kid.png', 0),
-(2, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(3, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(4, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(5, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(6, 2, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 1),
-(7, 2, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 1),
-(8, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
-(9, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
-(10, 2, 'PH', 'PLACEHOLER', '100.00', 1, 'images/placeholder.png', 0);
-=======
 INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `author`, `ISBN`, `listPrice`, `stock`, `genre`, `isBestSeller`, `imagePath`, `inCart`) VALUES
 (1, 2, 'ebook', 'Life Flight', '', 0, '12.75', 2000, 'romantic', 0, 'images/lifeflightebook.jpeg', 0),
 (2, 2, 'ebook', 'How To Stop Time', '', 0, '10.99', 2000, 'romantic', 0, 'images/howtostoptimeebook.jpeg', 0),
@@ -114,7 +94,6 @@ INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`,
 (8, 2, 'PH', 'PLACEHOLDER2', '', 0, '100.00', 1, 'PH', 0, 'images/placeholder.png', 0),
 (9, 2, 'PH', 'PLACEHOLDER3', '', 0, '100.00', 1, 'PH', 0, 'images/placeholder.png', 0),
 (10, 2, 'PH', 'PLACEHOLDER4', '', 0, '100.00', 1, 'PH', 0, 'images/placeholder.png', 0);
->>>>>>> darius-branch
 
 -- --------------------------------------------------------
 
@@ -142,12 +121,8 @@ INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `date`, `user_typ
 (4, 93033303477282698, 'nwadike1234', '1234', '2022-03-25 17:55:13', 0),
 (5, 61939839636, 'user1234', '1234', '2022-03-25 14:31:10', 0),
 (6, 244633750118402467, 'testing123456', '12345', '2022-03-25 18:00:41', 0),
-<<<<<<< HEAD
-(7, 78385, 'test1234', '1234', '2022-03-25 18:01:25', 0);
-=======
 (7, 78385, 'test1234', '1234', '2022-03-25 18:01:25', 0),
 (8, 19424, 'testing12345', '12345', '2022-04-12 19:05:43', 0);
->>>>>>> darius-branch
 
 --
 -- Indexes for dumped tables
@@ -179,11 +154,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-<<<<<<< HEAD
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-=======
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
->>>>>>> darius-branch
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
