@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 22, 2021 at 07:17 PM
+-- Generation Time: Apr 05, 2022 at 05:11 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -30,6 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `productID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`productID`) VALUES
+(6),
+(7);
 
 -- --------------------------------------------------------
 
@@ -63,21 +71,25 @@ CREATE TABLE `products` (
   `productName` varchar(255) DEFAULT NULL,
   `listPrice` decimal(10,2) DEFAULT NULL,
   `stock` int(11) NOT NULL,
-  `imagePath` varchar(100) NOT NULL
+  `imagePath` varchar(100) NOT NULL,
+  `inCart` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `imagePath`) VALUES
-(6, 2, 'shoes', 'PLACEHOLDER', '300.00', 4, 'images/placeholder.png'),
-(7, 2, 'shoes', 'PLACEHOLDER', '320.00', 7, 'images/placeholder.png'),
-(8, 2, 'shoes', 'PLACEHOLDER', '260.00', 5, 'images/placeholder.png'),
-(11, 1, 'shoes', 'PLACEHOLDER', '700.00', 0, 'images/placeholder.png'),
-(12, 1, 'shoes', 'PLACEHOLDER', '800.00', 0, 'images/placeholder.png'),
-(13, 1, 'shoes', 'PLACEHOLDER', '6000.00', 0, 'images/placeholder.png'),
-(15, 1, 'shoes', 'PLACEHOLDER', '4500.00', 0, 'images/placeholder.png');
+INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `imagePath`, `inCart`) VALUES
+(1, 1, 'book', 'Diary of a Wimpy Kid', '10.00', 0, 'images/diary_of_a_wimpy_kid.png', 0),
+(2, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
+(3, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
+(4, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
+(5, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
+(6, 2, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 1),
+(7, 2, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 1),
+(8, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
+(9, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
+(10, 2, 'PH', 'PLACEHOLER', '100.00', 1, 'images/placeholder.png', 0);
 
 -- --------------------------------------------------------
 
@@ -90,18 +102,22 @@ CREATE TABLE `users` (
   `user_id` bigint(20) NOT NULL,
   `user_name` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `user_type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `date`) VALUES
-(1, 62607, 'testing1234', 'testing', '2021-12-07 21:17:37'),
-(2, 716324, 'test', '1234', '2021-12-07 02:59:13'),
-(3, 3202, 'mama', 'mama', '2021-12-15 21:22:55'),
-(4, 11940540608333, 'mama', 'mama', '2021-12-15 21:23:12');
+INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `date`, `user_type`) VALUES
+(1, 62607, 'testing1234', 'testing', '2022-02-08 16:17:39', 0),
+(2, 716324, 'test', '1234', '2021-12-07 02:59:13', 0),
+(3, 868857, 'admin', '1234', '2022-03-24 23:44:50', 1),
+(4, 93033303477282698, 'nwadike1234', '1234', '2022-03-25 17:55:13', 0),
+(5, 61939839636, 'user1234', '1234', '2022-03-25 14:31:10', 0),
+(6, 244633750118402467, 'testing123456', '12345', '2022-03-25 18:00:41', 0),
+(7, 78385, 'test1234', '1234', '2022-03-25 18:01:25', 0);
 
 --
 -- Indexes for dumped tables
@@ -127,13 +143,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
