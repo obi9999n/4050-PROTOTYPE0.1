@@ -98,31 +98,30 @@ session_start();
                             <div>
                                 <p class="item=text"><?php echo $product['productName']; ?></p>
                             </div>
-                            <div>
-                                <p class="item=text">$<?php echo $product['listPrice']; ?></p>
-                            </div>
                         </div>
                     </div>
                     <div>
-                        <button id="open" data-target="<?php echo $product['productName']; ?>">
-                            <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                                width="360px"
-                                height="197px">
+                        <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
+                            <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                width="150px"
+                                height="225px"
+                            >
                         </button>
-                        <div class="modal-container" id="modal_container">
+                        <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
                                 <div class="body">
                                     Name: <?php echo $product['productName']; ?>
+                                    <h1><?php echo $product['productName']; ?></h1>
+                                    <p>Stock: <?php echo $product['stock']; ?></p>
+                                    <p class="item=text"><?php echo $product['productName']; ?></p>
                                 </div>
-                                <h1><?php echo $product['productName']; ?></h1>
-                                <p>Stock: <?php echo $product['stock']; ?></p>
-                                <p class="item=text"><?php echo $product['productName']; ?></p>
-                                <button id="close">
+                                <button class="close" id="close">
                                     Close me
                                 </button>
                             </div>
                         </div>  
                     </div>
+                    <!--
                     <div class="button-area">
                         <?php if (isset($_SESSION['user_id'])) {
                             if ($product['stock'] >= 1) { ?>
@@ -137,7 +136,7 @@ session_start();
                         <?php } else { ?>
                             <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
                         <?php } ?>  
-                    </div>
+                    </div> -->
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -161,18 +160,22 @@ session_start();
     <!---script-------->
     <script type="text/javascript">
 
-    const btns = document.querySelectorAll("[data-target]");
-    const modal_container = document.getElementById('modal_container');
-    const close = document.getElementById('close');
+    var modalBtns = document.querySelectorAll(".open");
 
-    btns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            modal_container.classList.add('show');
-        })
+    modalBtns.forEach(function(btn) {
+        btn.onclick = function() {
+            var modal = btn.getAttribute("data-modal");
+            modal_containter = document.getElementById(modal);
+            modal_containter.classList.add('show');
+        };
     });
 
-    close.addEventListener('click', () => {
-        modal_container.classList.remove('show');
+    var closeBtns = document.querySelectorAll(".close");
+
+    closeBtns.forEach(function(btn) {
+        btn.onclick = function() {
+            modal_containter.classList.remove('show');
+        };
     });
 
     $(document).on('click','.search',function(){
