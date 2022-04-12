@@ -34,7 +34,7 @@ session_start();
 <html>
 <head>
     <title>Signup</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/signupstyle.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="shortcut icon" href="images/atllogo.png">
     <link rel="stylesheet" href="style/normalize.css">
@@ -110,15 +110,29 @@ session_start();
         <div class="homepage-content-container">
         <div id="box">
         <form method="post">
-            <div style="font-size: 20px; margin: 10px; color: white">Signup</div>
+            <div style="font-size: 20px; margin: 10px; color: black">Signup</div><br><br>
             <?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
 				<p>Please enter some valid information.</p>
 			<?php } ?>
+            <div>
+                <label>First Name</label>
+                <input id="text" type="text" name="first_name"><br><br>
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input id="text" type="text" name="last_name"><br><br>
+            </div>
+            <label>Email Address</label>
+            <input id="text" type="text" name="email"><br><br>
+            <label>Address</label>
+            <input id="text" type="text" name="address"><br><br>
             <label>Username</label>
             <input id="text" type="text" name="user_name"><br><br>
 			<label>Password</label>
             <input id="text" type="password" name="password"><br><br>
+            <label>Birthday</label>
+            <input id="text" type="text" name="birthday"><br><br>
             <input id="button" type="submit" value="Signup"><br><br>
             <a href="login.php">Click to Login!</a><br><br>
             <a href="home.php">Go back home!</a><br><br>

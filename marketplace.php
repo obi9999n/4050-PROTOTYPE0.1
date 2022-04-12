@@ -4,7 +4,7 @@ session_start();
 	include("connection.php");
 	include("functions.php");
 
-    $queryProducts = 'SELECT * FROM products WHERE categoryID = 2 ORDER BY productID';
+    $queryProducts = 'SELECT * FROM products WHERE categoryID = 2 ORDER BY productName';
     $products = mysqli_query($con, $queryProducts);
     
 ?>
@@ -121,7 +121,7 @@ session_start();
                             </div>
                         </div>  
                     </div>
-                    <!--
+                    <!---
                     <div class="button-area">
                         <?php if (isset($_SESSION['user_id'])) {
                             if ($product['stock'] >= 1) { ?>
@@ -136,7 +136,7 @@ session_start();
                         <?php } else { ?>
                             <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
                         <?php } ?>  
-                    </div> -->
+                    </div> --->
                 </div>
                 <?php endforeach; ?>
             </div>

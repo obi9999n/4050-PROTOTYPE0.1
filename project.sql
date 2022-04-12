@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2022 at 05:11 PM
+-- Generation Time: Apr 12, 2022 at 10:51 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -30,14 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `productID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`productID`) VALUES
-(6),
-(7);
 
 -- --------------------------------------------------------
 
@@ -69,41 +61,31 @@ CREATE TABLE `products` (
   `categoryID` int(11) DEFAULT NULL,
   `productCode` varchar(10) DEFAULT NULL,
   `productName` varchar(255) DEFAULT NULL,
+  `author` varchar(100) NOT NULL,
+  `ISBN` int(13) NOT NULL,
   `listPrice` decimal(10,2) DEFAULT NULL,
   `stock` int(11) NOT NULL,
-<<<<<<< HEAD
-  `genre` varchar(255) DEFAULT NULL,
-  `isBestSeller` tinyint(1) DEFAULT NULL,
-  `imagePath` varchar(100) NOT NULL;
-=======
+  `genre` varchar(100) NOT NULL,
+  `isBestSeller` int(11) NOT NULL,
   `imagePath` varchar(100) NOT NULL,
   `inCart` tinyint(1) NOT NULL
->>>>>>> 4de843410eadf5835661a7608eb953236afdbcc7
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-<<<<<<< HEAD
-INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `genre`, `isBestSeller`, `imagePath`) VALUES
-(1, 2, 'ebook', 'Life Flight', '12.75', 2000, 'romance', 0, 'images/lifeflightebook.jpg')
-
-
-
-=======
-INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `imagePath`, `inCart`) VALUES
-(1, 1, 'book', 'Diary of a Wimpy Kid', '10.00', 0, 'images/diary_of_a_wimpy_kid.png', 0),
-(2, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(3, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(4, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(5, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
-(6, 2, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 1),
-(7, 2, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 1),
-(8, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
-(9, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
-(10, 2, 'PH', 'PLACEHOLER', '100.00', 1, 'images/placeholder.png', 0);
->>>>>>> 4de843410eadf5835661a7608eb953236afdbcc7
+INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `author`, `ISBN`, `listPrice`, `stock`, `genre`, `isBestSeller`, `imagePath`, `inCart`) VALUES
+(1, 2, 'ebook', 'Life Flight', '', 0, '12.75', 2000, 'romantic', 0, 'images/lifeflightebook.jpeg', 0),
+(2, 2, 'ebook', 'How To Stop Time', '', 0, '10.99', 2000, 'romantic', 0, 'images/howtostoptimeebook.jpeg', 0),
+(3, 2, 'book', 'Freezing Order', '', 0, '22.99', 43, 'nonfiction', 0, 'images/freezingorderbook.jpeg', 0),
+(4, 2, 'ebook', 'Hello Molly', '', 0, '27.99', 20, 'nonfiction', 0, 'images/hellomollybook.jpeg', 0),
+(5, 2, 'book', 'Against All Odds', '', 0, '14.99', 10, 'nonfiction', 0, 'images/againstalloddsbook.jpeg', 0),
+(6, 2, 'PH', 'Portrait Of A Thief', '', 0, '19.99', 2000, 'nonfiction', 0, 'images/portraitofathiefbook.jpeg', 0),
+(7, 2, 'book', 'Black Ops', '', 0, '100.00', 600, 'nonfiction', 0, 'images/blackopsbook.jpeg', 0),
+(8, 2, 'PH', 'PLACEHOLDER2', '', 0, '100.00', 1, 'PH', 0, 'images/placeholder.png', 0),
+(9, 2, 'PH', 'PLACEHOLDER3', '', 0, '100.00', 1, 'PH', 0, 'images/placeholder.png', 0),
+(10, 2, 'PH', 'PLACEHOLDER4', '', 0, '100.00', 1, 'PH', 0, 'images/placeholder.png', 0);
 
 -- --------------------------------------------------------
 
@@ -131,7 +113,8 @@ INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `date`, `user_typ
 (4, 93033303477282698, 'nwadike1234', '1234', '2022-03-25 17:55:13', 0),
 (5, 61939839636, 'user1234', '1234', '2022-03-25 14:31:10', 0),
 (6, 244633750118402467, 'testing123456', '12345', '2022-03-25 18:00:41', 0),
-(7, 78385, 'test1234', '1234', '2022-03-25 18:01:25', 0);
+(7, 78385, 'test1234', '1234', '2022-03-25 18:01:25', 0),
+(8, 19424, 'testing12345', '12345', '2022-04-12 19:05:43', 0);
 
 --
 -- Indexes for dumped tables
@@ -163,7 +146,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
