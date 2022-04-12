@@ -9,7 +9,7 @@ session_start();
 <!doctype HTML>
 <html lang="english">
 <head> 
-    <title>Clothes</title>
+    <title>Bookstore</title>
     <link rel="shortcut icon" href="images/atllogo.png">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="css/home-style.css">

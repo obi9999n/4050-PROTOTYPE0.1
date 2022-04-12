@@ -104,10 +104,24 @@ session_start();
                         </div>
                     </div>
                     <div>
-                        <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                            width="360px"
-                            height="197px"
-                        >
+                        <button id="open" data-target="<?php echo $product['productName']; ?>">
+                            <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                width="360px"
+                                height="197px">
+                        </button>
+                        <div class="modal-container" id="modal_container">
+                            <div class="modal">
+                                <div class="body">
+                                    Name: <?php echo $product['productName']; ?>
+                                </div>
+                                <h1><?php echo $product['productName']; ?></h1>
+                                <p>Stock: <?php echo $product['stock']; ?></p>
+                                <p class="item=text"><?php echo $product['productName']; ?></p>
+                                <button id="close">
+                                    Close me
+                                </button>
+                            </div>
+                        </div>  
                     </div>
                     <div class="button-area">
                         <?php if (isset($_SESSION['user_id'])) {
@@ -146,6 +160,21 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!---script-------->
     <script type="text/javascript">
+
+    const btns = document.querySelectorAll("[data-target]");
+    const modal_container = document.getElementById('modal_container');
+    const close = document.getElementById('close');
+
+    btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            modal_container.classList.add('show');
+        })
+    });
+
+    close.addEventListener('click', () => {
+        modal_container.classList.remove('show');
+    });
+
     $(document).on('click','.search',function(){
         $('.search-bar').addClass('search-bar-active')
     });
