@@ -4,7 +4,7 @@ session_start();
 	include("connection.php");
 	include("functions.php");
 
-    $queryProducts = 'SELECT * FROM products WHERE categoryID = 2 ORDER BY productID';
+    $queryProducts = 'SELECT * FROM products WHERE categoryID = 2 ORDER BY productName';
     $products = mysqli_query($con, $queryProducts);
     
 ?>
@@ -98,17 +98,30 @@ session_start();
                             <div>
                                 <p class="item=text"><?php echo $product['productName']; ?></p>
                             </div>
-                            <div>
-                                <p class="item=text">$<?php echo $product['listPrice']; ?></p>
-                            </div>
                         </div>
                     </div>
                     <div>
-                        <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                            width="360px"
-                            height="197px"
-                        >
+                        <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
+                            <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                width="150px"
+                                height="225px"
+                            >
+                        </button>
+                        <div class="modal-container" id="<?php echo $product['productName']; ?>">
+                            <div class="modal">
+                                <div class="body">
+                                    Name: <?php echo $product['productName']; ?>
+                                    <h1><?php echo $product['productName']; ?></h1>
+                                    <p>Stock: <?php echo $product['stock']; ?></p>
+                                    <p class="item=text"><?php echo $product['productName']; ?></p>
+                                </div>
+                                <button class="close" id="close">
+                                    Close me
+                                </button>
+                            </div>
+                        </div>  
                     </div>
+                    <!---
                     <div class="button-area">
                         <?php if (isset($_SESSION['user_id'])) {
                             if ($product['stock'] >= 1) { ?>
@@ -123,7 +136,7 @@ session_start();
                         <?php } else { ?>
                             <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
                         <?php } ?>  
-                    </div>
+                    </div> --->
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -146,6 +159,25 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!---script-------->
     <script type="text/javascript">
+
+    var modalBtns = document.querySelectorAll(".open");
+
+    modalBtns.forEach(function(btn) {
+        btn.onclick = function() {
+            var modal = btn.getAttribute("data-modal");
+            modal_containter = document.getElementById(modal);
+            modal_containter.classList.add('show');
+        };
+    });
+
+    var closeBtns = document.querySelectorAll(".close");
+
+    closeBtns.forEach(function(btn) {
+        btn.onclick = function() {
+            modal_containter.classList.remove('show');
+        };
+    });
+
     $(document).on('click','.search',function(){
         $('.search-bar').addClass('search-bar-active')
     });
@@ -153,5 +185,5 @@ session_start();
     $(document).on('click','.search-cancel',function(){
         $('.search-bar').removeClass('search-bar-active')
     });
-    </script>
+    </script> 
 </body>

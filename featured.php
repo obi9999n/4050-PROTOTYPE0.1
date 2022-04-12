@@ -24,7 +24,7 @@ session_start();
 <body>
     <div>
         <div class="page-title-container">
-            <h2 class="page-title">ATL SHOE BOUTIQUE</h2>
+            <h2 class="page-title">ATLANTA BOOKSTORE</h2>
         </div>
         <nav>
         <!---menu-bar------>
@@ -83,11 +83,11 @@ session_start();
     <div class="body0">
         <div class="featured-top-banner">
             <div>
-                <p id="topbannertext">All items from December's featured drop are out of stock. Be on the lookout for the next shock drop!</p>
+                <p id="topbannertext">All items from March's featured drop are out of stock. Be on the lookout for the next shock drop!</p>
             </div>
         </div>
         <div class="topbannercontainer">
-            <p id="topbannertitle">DECEMBER DROP</p>
+            <p id="topbannertitle">MARCH DROP</p>
         </div>
         <div class="featured-items-container">
             <div class="featured-container">

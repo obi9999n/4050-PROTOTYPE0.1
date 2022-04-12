@@ -234,8 +234,8 @@ nav {
 
 .featured-item {
   flex-direction: column-reverse;
-  width: 360px;
-  height: 301px;
+  width: 150px;
+  height: 265px;
   margin-top: 15px;
 }
 /* .item-info:hover {
@@ -274,10 +274,15 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10px;
-  width: 360px;
+  width: 150px;
   height: 40px;
   cursor: pointer;
   border-bottom: 1px solid #dadada;
+}
+
+img.image:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=100);
 }
 
 .body0 {
@@ -410,4 +415,38 @@ nav {
   border-radius: 5px;
   height: 45px;
   border: 0px;
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.modal-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
+
+#close {
+  color: white;
+  background-color: darkblue;
+  border-radius: 5px;
 }

@@ -9,7 +9,7 @@ session_start();
 <!doctype HTML>
 <html lang="english">
 <head> 
-    <title>Clothes</title>
+    <title>Bookstore</title>
     <link rel="shortcut icon" href="images/atllogo.png">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="css/home-style.css">
@@ -95,7 +95,7 @@ session_start();
         <img src="images/pexels-richard-solano-5796567.jpg" alt="">
         <div class="homepage-content-container">
             <div class="left-home-content">
-                <h5>DECEMBER EXCLUSIVE RELEASES NOW LIVE</h5>
+                <h5>MARCH EXCLUSIVE RELEASES NOW LIVE</h5>
                 <a href="featured.php"><button class="home-buttons" >SHOP THE DROP</button></a>
             </div>
             <div class="right-home-content">
