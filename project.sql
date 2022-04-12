@@ -71,14 +71,27 @@ CREATE TABLE `products` (
   `productName` varchar(255) DEFAULT NULL,
   `listPrice` decimal(10,2) DEFAULT NULL,
   `stock` int(11) NOT NULL,
+<<<<<<< HEAD
+  `genre` varchar(255) DEFAULT NULL,
+  `isBestSeller` tinyint(1) DEFAULT NULL,
+  `imagePath` varchar(100) NOT NULL;
+=======
   `imagePath` varchar(100) NOT NULL,
   `inCart` tinyint(1) NOT NULL
+>>>>>>> 4de843410eadf5835661a7608eb953236afdbcc7
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
+<<<<<<< HEAD
+INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `genre`, `isBestSeller`, `imagePath`) VALUES
+(1, 2, 'ebook', 'Life Flight', '12.75', 2000, 'romance', 0, 'images/lifeflightebook.jpg')
+
+
+
+=======
 INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `listPrice`, `stock`, `imagePath`, `inCart`) VALUES
 (1, 1, 'book', 'Diary of a Wimpy Kid', '10.00', 0, 'images/diary_of_a_wimpy_kid.png', 0),
 (2, 1, 'PH', 'PLACEHOLDER', '100.00', 0, 'images/placeholder.png', 0),
@@ -90,6 +103,7 @@ INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`,
 (8, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
 (9, 2, 'PH', 'PLACEHOLDER', '100.00', 1, 'images/placeholder.png', 0),
 (10, 2, 'PH', 'PLACEHOLER', '100.00', 1, 'images/placeholder.png', 0);
+>>>>>>> 4de843410eadf5835661a7608eb953236afdbcc7
 
 -- --------------------------------------------------------
 
