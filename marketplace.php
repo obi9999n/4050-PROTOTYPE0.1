@@ -88,6 +88,14 @@ session_start();
         </div>
         <div class="topbannercontainer">
             <p id="topbannertitle">MARKETPLACE</p>
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                    <a href="#">Title</a>
+                    <a href="#">Author</a>
+                    <a href="#">Price</a>
+                </div>
+            </div>
         </div>
         <div class="featured-items-container">
             <div class="featured-container">
@@ -110,10 +118,25 @@ session_start();
                         <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
                                 <div class="body">
-                                    Name: <?php echo $product['productName']; ?>
                                     <h1><?php echo $product['productName']; ?></h1>
+                                    <p>Author: <?php echo $product['author']; ?></p>
+                                    <p>Price: $<?php echo $product['listPrice']; ?></p>
                                     <p>Stock: <?php echo $product['stock']; ?></p>
-                                    <p class="item=text"><?php echo $product['productName']; ?></p>
+                                    <div class="button-area">
+                                        <?php if (isset($_SESSION['user_id'])) {
+                                                if ($product['stock'] >= 1) { ?>
+                                                    <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                                                <?php } else { 
+                                                    if ($product['inCart'] == 1) { ?>
+                                                        <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                    <?php } else { ?>
+                                                        <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                        <?php } else { ?>
+                                            <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                                        <?php } ?>  
+                                    </div>
                                 </div>
                                 <button class="close" id="close">
                                     Close me
