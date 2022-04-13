@@ -45,6 +45,7 @@ session_start();
                 <input type="text" name="s_query" placeholder="Search for Product"/>
             </form>
             <!--cancel-button---->
+            <!-- <a href="javascript:history.back()">Go Back</a> -->
             <a href="home.php" class="search-cancel">
                 <i class="gg-home"></i>
             </a>
