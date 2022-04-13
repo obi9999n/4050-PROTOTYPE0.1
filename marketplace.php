@@ -120,7 +120,7 @@ session_start();
                             <div class="modal">
                                 <div class="modal-body">
                                     <div>
-                                        <img class="" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                        <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                                             width="300px"
                                             height="450px"
                                         >
@@ -134,8 +134,12 @@ session_start();
                                             <?php if (isset($_SESSION['user_id'])) {
                                                     if ($product['stock'] >= 1) { ?>
                                                         <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
-                                                    <?php } else { 
-                                                        if ($product['inCart'] == 1) { ?>
+                                                        <?php if ($product['inCart'] >= 1) { ?>
+                                                            <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                        <?php } ?>
+                                                    <?php } else { ?>
+                                                        <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
+                                                            <button class="featured-out-of-stock">OUT OF STOCK</button>
                                                             <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
                                                         <?php } else { ?>
                                                             <button class="featured-out-of-stock">OUT OF STOCK</button>

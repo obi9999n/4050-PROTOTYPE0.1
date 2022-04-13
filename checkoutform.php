@@ -186,7 +186,7 @@
         <?php $sum+=$product['listPrice']; ?>
       <?php endforeach; ?>
       <hr>
-      <p>Total<span class="price" style="color:black"><b>$<?php echo $sum;?>.00</b></span></p>
+      <p>Total<span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>
     </div>
   </div>
 </div>
