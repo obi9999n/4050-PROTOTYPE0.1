@@ -118,25 +118,33 @@ session_start();
                         </button>
                         <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
-                                <div class="body">
-                                    <h1><?php echo $product['productName']; ?></h1>
-                                    <p>Author: <?php echo $product['author']; ?></p>
-                                    <p>Price: $<?php echo $product['listPrice']; ?></p>
-                                    <p>Stock: <?php echo $product['stock']; ?></p>
-                                    <div class="button-area">
-                                        <?php if (isset($_SESSION['user_id'])) {
-                                                if ($product['stock'] >= 1) { ?>
-                                                    <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
-                                                <?php } else { 
-                                                    if ($product['inCart'] == 1) { ?>
-                                                        <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
-                                                    <?php } else { ?>
-                                                        <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                <div class="modal-body">
+                                    <div>
+                                        <img class="" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                            width="150px"
+                                            height="225px"
+                                        >
+                                    </div>
+                                    <div>
+                                        <h1><?php echo $product['productName']; ?></h1>
+                                        <p>Author: <?php echo $product['author']; ?></p>
+                                        <p>Price: $<?php echo $product['listPrice']; ?></p>
+                                        <p>Stock: <?php echo $product['stock']; ?></p>
+                                        <div class="button-area">
+                                            <?php if (isset($_SESSION['user_id'])) {
+                                                    if ($product['stock'] >= 1) { ?>
+                                                        <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                                                    <?php } else { 
+                                                        if ($product['inCart'] == 1) { ?>
+                                                            <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                        <?php } else { ?>
+                                                            <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                        <?php } ?>
                                                     <?php } ?>
-                                                <?php } ?>
-                                        <?php } else { ?>
-                                            <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
-                                        <?php } ?>  
+                                            <?php } else { ?>
+                                                <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                                            <?php } ?>  
+                                        </div>
                                     </div>
                                 </div>
                                 <button class="close" id="close">

@@ -468,7 +468,10 @@ img.image:hover {
   height: 50px;
   margin-left: 25px;
 }
-
+.modal-body {
+  display: flex;
+  flex-direction: row;
+}
 .dropdown-content {
   display: none;
   position: absolute;
