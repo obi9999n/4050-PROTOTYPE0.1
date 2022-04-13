@@ -223,4 +223,4 @@ session_start();
         $('.search-bar').removeClass('search-bar-active')
     });
     </script> 
-</body>
+</body> 
