@@ -246,6 +246,7 @@ nav {
 #topbannertitle {
   font-size: 20pt;
   color: rgb(0, 0, 0);
+  margin-bottom: 5px;
 }
 
 .featured-out-of-stock {
