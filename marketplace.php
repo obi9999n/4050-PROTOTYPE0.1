@@ -206,30 +206,30 @@ session_start();
     <!---script-------->
     <script type="text/javascript">
 
-    var modalBtns = document.querySelectorAll(".open");
+        var modalBtns = document.querySelectorAll(".open");
 
-    modalBtns.forEach(function(btn) {
-        btn.onclick = function() {
-            var modal = btn.getAttribute("data-modal");
-            modal_containter = document.getElementById(modal);
-            modal_containter.classList.add('show');
-        };
-    });
+        modalBtns.forEach(function(btn) {
+            btn.onclick = function() {
+                var modal = btn.getAttribute("data-modal");
+                modal_containter = document.getElementById(modal);
+                modal_containter.classList.add('show');
+            };
+        });
 
-    var closeBtns = document.querySelectorAll(".close");
+        var closeBtns = document.querySelectorAll(".close");
 
-    closeBtns.forEach(function(btn) {
-        btn.onclick = function() {
-            modal_containter.classList.remove('show');
-        };
-    });
+        closeBtns.forEach(function(btn) {
+            btn.onclick = function() {
+                modal_containter.classList.remove('show');
+            };
+        });
 
-    $(document).on('click','.search',function(){
-        $('.search-bar').addClass('search-bar-active')
-    });
+        $(document).on('click','.search',function(){
+            $('.search-bar').addClass('search-bar-active')
+        });
 
-    $(document).on('click','.search-cancel',function(){
-        $('.search-bar').removeClass('search-bar-active')
-    });
+        $(document).on('click','.search-cancel',function(){
+            $('.search-bar').removeClass('search-bar-active')
+        });
     </script> 
 </body>
