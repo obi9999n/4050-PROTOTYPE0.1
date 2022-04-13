@@ -119,13 +119,18 @@ session_start();
                         <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
                                 <div class="modal-body">
+<<<<<<< HEAD
                                     <div>
+=======
+                                    <div style="margin-bottom:40px;">
+>>>>>>> obi-branch
                                         <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                                             width="300px"
                                             height="450px"
                                         >
                                     </div>
                                     <div>
+<<<<<<< HEAD
                                         <h1><?php echo $product['productName']; ?></h1>
                                         <p>Author: <?php echo $product['author']; ?></p>
                                         <p>Genre: <?php echo $product['genre']; ?></p>
@@ -142,13 +147,40 @@ session_start();
                                                         <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
                                                             <button class="featured-out-of-stock">OUT OF STOCK</button>
                                                             <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+=======
+                                        <div class="modal-right">
+                                            <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
+                                            <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
+                                            <p style="text-align:left; margin-top:3px">Genre: <?php echo $product['genre']; ?></p>
+
+                                        </div>
+                                        <hr style="margin-top:0px; margin-left:0px; margin-right:20px; " >
+
+                                        <div class="modal-right">
+                                            <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
+                                        </div>
+                                        <div class="modal-right">
+                                            <p>Stock: <?php echo $product['stock']; ?></p>
+                                            <div class="button-area">
+                                                <?php if (isset($_SESSION['user_id'])) {
+                                                        if ($product['stock'] >= 1) { ?>
+                                                            <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                                                            <?php if ($product['inCart'] >= 1) { ?>
+                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                            <?php } ?>
+>>>>>>> obi-branch
                                                         <?php } else { ?>
-                                                            <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                            <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
+                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                            <?php } else { ?>
+                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                            <?php } ?>
                                                         <?php } ?>
-                                                    <?php } ?>
-                                            <?php } else { ?>
-                                                <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
-                                            <?php } ?>  
+                                                <?php } else { ?>
+                                                    <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                                                <?php } ?>  
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
