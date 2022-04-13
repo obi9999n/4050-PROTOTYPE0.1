@@ -506,3 +506,8 @@ img.image:hover {
 .modal-image {
   padding-right: 40px;
 }
+
+.open {
+  border: none;
+  background-color: aliceblue;
+}

@@ -12,7 +12,7 @@ session_start();
 <!doctype HTML>
 <html lang="english">
 <head> 
-    <title>Featured</title>
+    <title>Marketplace</title>
     <link rel="shortcut icon" href="images/icon.jpg">
     <link rel="stylesheet" href="css/home-style.css">
     <!-----for icons------>
