@@ -16,9 +16,9 @@
         
     $query = "delete from cart where productID = $product_id";
     $row=$db->exec($query);
-    $query = "UPDATE `products` SET `inCart`='0' WHERE productID = $product_id";
+    $query = "UPDATE `products` SET inCart = inCart - 1 WHERE productID = $product_id";
     $row=$db->exec($query);
-    $query = "UPDATE `products` SET `stock`='1' WHERE productID = $product_id";
+    $query = "UPDATE `products` SET stock = stock + 1 WHERE productID = $product_id";
     $row=$db->exec($query);
 
     header("Location: marketplace.php");

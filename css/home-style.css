@@ -433,6 +433,7 @@ img.image:hover {
   width: 100vw;
   height: 100vh;
 }
+
 .modal-container.show {
   pointer-events: auto;
   opacity: 1;
@@ -468,10 +469,12 @@ img.image:hover {
   height: 50px;
   margin-left: 25px;
 }
+
 .modal-body {
   display: flex;
   flex-direction: row;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -498,4 +501,13 @@ img.image:hover {
 
 .dropdown:hover .dropbtn {
   background-color: darkcyan;
+}
+
+.modal-image {
+  padding-right: 40px;
+}
+
+.open {
+  border: none;
+  background-color: aliceblue;
 }
