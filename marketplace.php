@@ -121,8 +121,8 @@ session_start();
                                 <div class="modal-body">
                                     <div>
                                         <img class="" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                                            width="150px"
-                                            height="225px"
+                                            width="300px"
+                                            height="450px"
                                         >
                                     </div>
                                     <div>
@@ -148,7 +148,7 @@ session_start();
                                     </div>
                                 </div>
                                 <button class="close" id="close">
-                                    Close me
+                                    Close
                                 </button>
                             </div>
                         </div>  
