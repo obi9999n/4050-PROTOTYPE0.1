@@ -235,7 +235,7 @@ nav {
 .featured-item {
   flex-direction: column-reverse;
   width: 150px;
-  height: 265px;
+  height: 275px;
   margin-top: 15px;
   margin-left: 10px;
   margin-right: 10px;
@@ -510,4 +510,5 @@ img.image:hover {
 .open {
   border: none;
   background-color: aliceblue;
+  padding: 0px;
 }
