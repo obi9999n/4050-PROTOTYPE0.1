@@ -88,14 +88,15 @@ session_start();
         </div>
         <div class="topbannercontainer">
             <p id="topbannertitle">MARKETPLACE</p>
-            <div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
+            
+        </div>
+        <div class="dropdown">
+                <button class="dropbtn">Filter by:</button>
                 <div class="dropdown-content">
                     <a href="#">Title</a>
                     <a href="#">Author</a>
                     <a href="#">Price</a>
                 </div>
-            </div>
         </div>
         <div class="featured-items-container">
             <div class="featured-container">
