@@ -128,6 +128,7 @@ session_start();
                                     <div>
                                         <h1><?php echo $product['productName']; ?></h1>
                                         <p>Author: <?php echo $product['author']; ?></p>
+                                        <p>Genre: <?php echo $product['genre']; ?></p>
                                         <p>Price: $<?php echo $product['listPrice']; ?></p>
                                         <p>Stock: <?php echo $product['stock']; ?></p>
                                         <div class="button-area">
