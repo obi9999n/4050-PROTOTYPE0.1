@@ -93,7 +93,7 @@ session_start();
         <div class="dropdown">
                 <button class="dropbtn">Filter by:</button>
                 <div class="dropdown-content">
-                    <a href="#">Title</a>
+                    <a href="#">A-Z</a>
                     <a href="#">Author</a>
                     <a href="#">Price</a>
                 </div>
