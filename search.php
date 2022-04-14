@@ -12,7 +12,7 @@ session_start();
     <title>Search</title>
     <link rel="shortcut icon" href="images/atllogo.png">
     <link rel="stylesheet" href="style/normalize.css">
-    <link rel="stylesheet" href="css/search-style.css">
+    <link rel="stylesheet" href="css/search-style1.css">
     <!-----for icons------>
     <link href='https://css.gg/css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
@@ -58,7 +58,7 @@ session_start();
                 <div>
                     <div class="item-info">
                         <div>
-                            <p class="item=text"><?php echo $product['productName'];?></p>
+                            <p class="item-text"><?php echo $product['productName'];?></p>
                         </div>
                         <!-- <div>
                             <p class="item=text"><s>$<?php echo $product['listPrice'];?></s></p>
@@ -66,11 +66,62 @@ session_start();
                     </div>
                 </div>
                 <div>
-                    <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                        width="150px"
-                        height="220px"
-                    >
+                    <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
+                        <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                            width="150px"
+                            height="225px"
+                        >
+                    </button>
                 </div>
+                <div class="modal-container" id="<?php echo $product['productName']; ?>">
+                            <div class="modal">
+                                <div class="modal-body">
+                                    <div style="margin-bottom:40px;">
+                                        <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                            width="300px"
+                                            height="450px"
+                                        >
+                                    </div>
+                                    <div>
+                                        <div class="modal-right">
+                                            <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
+                                            <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
+                                            <p style="text-align:left; margin-top:3px">Genre: <?php echo $product['genre']; ?></p>
+                                        </div>
+                                        <hr style="margin-top:0px; margin-left:0px; margin-right:20px; " >
+
+                                        <div class="modal-right">
+                                            <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
+                                        </div>
+                                        <div class="modal-right">
+                                            <p>Stock: <?php echo $product['stock']; ?></p>
+                                            <div class="button-area">
+                                                <?php if (isset($_SESSION['user_id'])) {
+                                                        if ($product['stock'] >= 1) { ?>
+                                                            <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                                                            <?php if ($product['inCart'] >= 1) { ?>
+                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                            <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
+                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                            <?php } else { ?>
+                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                            <?php } ?>
+                                                        <?php } ?>
+                                                <?php } else { ?>
+                                                    <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                                                <?php } ?>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="close" id="close">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
                 <!---<div class="button-area">
                     <?php if ($product['stock'] == 0) { ?>
                         <button class="featured-out-of-stock">OUT OF STOCK</button>
@@ -83,6 +134,30 @@ session_start();
         </div>
     </div>
     <?php }?>
+
+    <!--jQuery------>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!---script-------->
+    <script type="text/javascript">
+
+        var modalBtns = document.querySelectorAll(".open");
+
+        modalBtns.forEach(function(btn) {
+            btn.onclick = function() {
+                var modal = btn.getAttribute("data-modal");
+                modal_containter = document.getElementById(modal);
+                modal_containter.classList.add('show');
+            };
+        });
+
+        var closeBtns = document.querySelectorAll(".close");
+
+        closeBtns.forEach(function(btn) {
+            btn.onclick = function() {
+                modal_containter.classList.remove('show');
+            };
+        });
+    </script> 
     
 </body>
 

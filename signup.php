@@ -118,10 +118,10 @@ session_start();
         <div class="homepage-content-container">
         <div id="box">
         <form method="post">
-            <div style="font-size: 20px; margin: 10px; color: black">Signup</div><br><br>
+            <center><div style="font-size: 20px; margin-right: 10px; padding-bottom: 10px; color: black">Account Registration</div><br></center>
             <?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
-				<p>Please enter some valid information.</p>
+				<center><p>Please enter some valid information.</p></center>
 			<?php } ?>
             <div>
                 <label>First Name</label>
@@ -133,7 +133,7 @@ session_start();
             </div>
             <label>Email Address</label>
             <input id="text" type="text" name="email"><br><br>
-            <label>Address</label>
+            <label>Street Address</label>
             <input id="text" type="text" name="address"><br><br>
             <div>
                 <label>City</label>
@@ -141,11 +141,11 @@ session_start();
             </div>
             <div>
                 <label>State</label>
-                <input id="text" type="text" name="state" size=5><br><br>
+                <input id="text" type="text" name="state" size=10><br><br>
             </div>
             <div>
                 <label>Zip Code</label>
-                <input id="text" type="text" name="zip_code" size=22><br><br>
+                <input id="text" type="text" name="zip_code" size=17><br><br>
             </div>
             <label>Username</label>
             <input id="text" type="text" name="user_name"><br><br>
@@ -154,7 +154,6 @@ session_start();
             <label>Birthday</label>
             <input id="text" type="text" name="birthday"><br><br>
             <input id="button" type="submit" value="Signup"><br><br>
-            <a href="login.php">Click to Login!</a><br><br>
         </form>
     </div>
     </div>
