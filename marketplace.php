@@ -119,13 +119,13 @@ session_start();
                         <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
                                 <div class="modal-body">
-                                    <div style="margin-bottom:40px;">
+                                    <div class="modal-image-wrapper">
                                         <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                                             width="300px"
                                             height="450px"
                                         >
                                     </div>
-                                    <div>
+                                    <div class="modal-right-container">
                                         <div class="modal-right">
                                             <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
                                             <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
@@ -137,8 +137,10 @@ session_start();
                                         <div class="modal-right">
                                             <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
                                         </div>
-                                        <div class="modal-right">
+                                        <div class="modal-right-button">
+                                            <!--
                                             <p>Stock: <?php echo $product['stock']; ?></p>
+                                            -->
                                             <div class="button-area">
                                                 <?php if (isset($_SESSION['user_id'])) {
                                                         if ($product['stock'] >= 1) { ?>

@@ -255,14 +255,30 @@ nav {
   width: 360px;
   height: 45px;
   cursor: pointer;
-  background: rgb(255, 255, 255);
-  border-radius: 5px;
-  border-color: white;
+  background: rgb(0, 0, 0);
+  border: none;
+  text-decoration: none;
+  color: white;
+}
+
+.featured-out-of-stock a {
+  text-decoration: none;
+  color: white;
 }
 
 .homepage-top-level-content {
   flex-direction: row;
   justify-content: center;
+}
+
+.modal-right-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-right-button {
+  margin-top: auto;
 }
 
 .button-area {
@@ -458,10 +474,11 @@ img.image:hover {
 .dropbtn {
   background-color: #809ef0;
   color: white;
-  padding: 16px;
   font-size: 16px;
   border: none;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  width: 75px;
+  height: 50px;
 }
 
 .dropdown {
@@ -473,6 +490,13 @@ img.image:hover {
 .modal-body {
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.modal-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .dropdown-content {
@@ -486,7 +510,7 @@ img.image:hover {
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 16px;
   text-decoration: none;
   display: block;
 }
@@ -505,6 +529,7 @@ img.image:hover {
 
 .modal-image {
   padding-right: 40px;
+  margin-top: auto;
 }
 
 .open {
