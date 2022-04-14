@@ -8,13 +8,21 @@ session_start();
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         //something was posted
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zip_code = $_POST['zip_code'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
+        $birthday = $_POST['birthday'];
 
-        if(!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+        if(!empty($first_name) && !empty($last_name) && !empty($email) && !empty($address) && !empty($city) && !empty($state) && !empty($zip_code) && !empty($user_name) && !empty($password) && !empty($birthday) && !is_numeric($user_name)) {
             // save to database
             $user_id = random_num(20);
-            $query = "insert into users (user_id, user_name, password, user_type) values ('$user_id', '$user_name', '$password', '0')";
+            $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', '0')";
             
             // save
             mysqli_query($con, $query);
@@ -127,6 +135,18 @@ session_start();
             <input id="text" type="text" name="email"><br><br>
             <label>Address</label>
             <input id="text" type="text" name="address"><br><br>
+            <div>
+                <label>City</label>
+                <input id="text" type="text" name="city" size=10><br><br>
+            </div>
+            <div>
+                <label>State</label>
+                <input id="text" type="text" name="state" size=5><br><br>
+            </div>
+            <div>
+                <label>Zip Code</label>
+                <input id="text" type="text" name="zip_code" size=22><br><br>
+            </div>
             <label>Username</label>
             <input id="text" type="text" name="user_name"><br><br>
 			<label>Password</label>
@@ -135,7 +155,6 @@ session_start();
             <input id="text" type="text" name="birthday"><br><br>
             <input id="button" type="submit" value="Signup"><br><br>
             <a href="login.php">Click to Login!</a><br><br>
-            <a href="home.php">Go back home!</a><br><br>
         </form>
     </div>
     </div>
