@@ -165,7 +165,7 @@ session_start();
             <input id="text" type="text" name="user_name"><br><br>
 			<label>Password</label>
             <input id="text" type="password" name="password"><br><br>
-            <label>Birthday</label>
+            <label>Birthday (YYYY-MM-DD)</label>
             <input id="text" type="text" name="birthday"><br><br>
             <input id="button" type="submit" value="Signup"><br><br>
         </form>
