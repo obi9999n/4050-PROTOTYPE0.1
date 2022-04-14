@@ -66,19 +66,12 @@ session_start();
                     </div>
                 </div>
                 <div>
-<<<<<<< HEAD
-                    <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                        width="150px"
-                        height="220px"
-                    >
-=======
                     <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
                         <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                             width="150px"
                             height="225px"
                         >
                     </button>
->>>>>>> origin/darius-branch2
                 </div>
                 <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
