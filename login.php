@@ -50,7 +50,7 @@ session_start();
     <title>Login</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-	<link rel="shortcut icon" href="images/atllogo.png">
+	<link rel="shortcut icon" href="images/atllogo3.png">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="css/home-style.css">
     <!-----for icons------>
@@ -69,7 +69,7 @@ session_start();
             <!----logo---->
             <div class="logo-plus-title">
                 <a href="home.php" class="logo">
-                    <img src="images/atllogo2.png" alt="logo image">
+                    <img src="images/atllogo3.png" alt="logo image">
                 </a>
             </div>
             <!--menu----->

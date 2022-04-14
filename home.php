@@ -10,7 +10,7 @@ session_start();
 <html lang="english">
 <head> 
     <title>Bookstore</title>
-    <link rel="shortcut icon" href="images/atllogo.png">
+    <link rel="shortcut icon" href="images/atllogo3.png">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="css/home-style.css">
     <!-----for icons------>

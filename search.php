@@ -26,7 +26,7 @@ session_start();
         $result_count = mysqli_num_rows($products);
 
         if ($result_count == 0) {
-            $queryGenre = "SELECT DISTINCT * FROM products WHERE UPPER(genre) LIKE UPPER('%$s_query%')";
+            $queryGenre = "SELECT DISTINCT * FROM products WHERE UPPER(genre) LIKE UPPER('$s_query')";
             $products = mysqli_query($con, $queryGenre);
             $result_count = mysqli_num_rows($products);
         } 
@@ -34,6 +34,12 @@ session_start();
         if ($result_count == 0) {
             $queryAuthor = "SELECT DISTINCT * FROM products WHERE UPPER(author) LIKE UPPER('%$s_query%')";
             $products = mysqli_query($con, $queryAuthor);
+            $result_count = mysqli_num_rows($products);
+        }
+
+        if ($result_count == 0) {
+            $queryISBN = "SELECT DISTINCT * FROM products WHERE UPPER(ISBN) LIKE UPPER('$s_query')";
+            $products = mysqli_query($con, $queryISBN);
             $result_count = mysqli_num_rows($products);
         }
     ?>

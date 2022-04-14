@@ -5,6 +5,7 @@ session_start();
 	include("functions.php");
 
     $validInfoNeeded = 0;
+    $validUsername = 0;
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         //something was posted
@@ -20,17 +21,26 @@ session_start();
         $birthday = $_POST['birthday'];
 
         if(!empty($first_name) && !empty($last_name) && !empty($email) && !empty($address) && !empty($city) && !empty($state) && !empty($zip_code) && !empty($user_name) && !empty($password) && !empty($birthday) && !is_numeric($user_name)) {
-            // save to database
-            $user_id = random_num(20);
-            $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', '0')";
-            
-            // save
-            mysqli_query($con, $query);
+            $usernameQuery = "SELECT DISTINCT * FROM users WHERE UPPER(user_name) LIKE UPPER('$user_name')";
+            $nonValidUsername = mysqli_query($con, $usernameQuery);
+            $result_count = mysqli_num_rows($nonValidUsername);
 
-            // send to login page
-            header("Location: login.php");
-            die;
-        
+            if ($result_count == 0) {
+                // save to database
+                $user_id = random_num(20);
+                $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', '0')";
+            
+                // save
+                mysqli_query($con, $query);
+
+                // send to login page
+                header("Location: login.php");
+                die;
+
+            } else {
+                $validUsername = 1;
+            }
+
         } else {
             $validInfoNeeded = 1;
         }
@@ -63,7 +73,7 @@ session_start();
             <!----logo---->
             <div class="logo-plus-title">
                 <a href="home.php" class="logo">
-                    <img src="images/atllogo2.png" alt="logo image">
+                    <img src="images/atllogo3.png" alt="logo image">
                 </a>
             </div>
             <!--menu----->
@@ -122,6 +132,10 @@ session_start();
             <?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
 				<center><p>Please enter some valid information.</p></center>
+			<?php } ?>
+            <?php if ($validUsername == 1) { ?>
+				<?php $validUsername = 0; ?>
+				<center><p>Username is not valid. Please try again.</p></center>
 			<?php } ?>
             <div>
                 <label>First Name</label>
