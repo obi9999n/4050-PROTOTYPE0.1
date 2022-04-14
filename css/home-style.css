@@ -297,11 +297,7 @@ img.image:hover {
 }
 
 .featured-top-banner {
-<<<<<<< HEAD
-  background-color: rgb(125, 182, 21);
-=======
   background-color: #809ef0;
->>>>>>> obi-branch
   height: 50px;
   display: flex;
   justify-content: center;
