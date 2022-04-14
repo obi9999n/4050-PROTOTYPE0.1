@@ -67,8 +67,8 @@ session_start();
                 </div>
                 <div>
                     <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                        width="360px"
-                        height="197px"
+                        width="150px"
+                        height="220px"
                     >
                 </div>
                 <!---<div class="button-area">
