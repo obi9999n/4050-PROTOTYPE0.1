@@ -130,7 +130,6 @@ session_start();
                                             <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
                                             <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
                                             <p style="text-align:left; margin-top:3px">Genre: <?php echo $product['genre']; ?></p>
-
                                         </div>
                                         <hr style="margin-top:0px; margin-left:0px; margin-right:20px; " >
 

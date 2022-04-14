@@ -58,17 +58,17 @@ session_start();
                 <div>
                     <div class="item-info">
                         <div>
-                            <p class="item=text"><s><?php echo $product['productName'];?></s></p>
+                            <p class="item=text"><?php echo $product['productName'];?></p>
                         </div>
-                        <div>
+                        <!-- <div>
                             <p class="item=text"><s>$<?php echo $product['listPrice'];?></s></p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div>
-                    <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                        width="360px"
-                        height="197px"
+                    <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                        width="150px"
+                        height="220px"
                     >
                 </div>
                 <!---<div class="button-area">
