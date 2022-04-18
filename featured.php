@@ -4,7 +4,7 @@ session_start();
 	include("connection.php");
 	include("functions.php");
 
-    $queryProducts = 'SELECT * FROM products WHERE categoryID = 1 ORDER BY productID';
+    $queryProducts = 'SELECT * FROM products WHERE isBestSeller = 1 ORDER BY productName';
     $products = mysqli_query($con, $queryProducts);
 
 ?>
@@ -83,11 +83,11 @@ session_start();
     <div class="body0">
         <div class="featured-top-banner">
             <div>
-                <p id="topbannertext">All items from March's featured drop are out of stock. Be on the lookout for the next shock drop!</p>
+                <p id="topbannertext">Here are some of our bestsellers!</p>
             </div>
         </div>
         <div class="topbannercontainer">
-            <p id="topbannertitle">MARCH DROP</p>
+            <p id="topbannertitle">Our Bestsellers</p>
         </div>
         <div class="featured-items-container">
             <div class="featured-container">
@@ -96,26 +96,88 @@ session_start();
                     <div>
                         <div class="item-info">
                             <div>
-                                <p class="item=text"><s><?php echo $product['productName'];?></s></p>
-                            </div>
-                            <div>
-                                <p class="item=text"><s>$<?php echo $product['listPrice'];?></s></p>
+                                <p class="item=text"><?php echo $product['productName']; ?></p>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <img src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                            width="360px"
-                            height="197px"
-                        >
+                        <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
+                            <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                width="150px"
+                                height="225px"
+                            >
+                        </button>
+                        <div class="modal-container" id="<?php echo $product['productName']; ?>">
+                            <div class="modal">
+                                <div class="modal-body">
+                                    <div class="modal-image-wrapper">
+                                        <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                            width="300px"
+                                            height="450px"
+                                        >
+                                    </div>
+                                    <div class="modal-right-container">
+                                        <div class="modal-right">
+                                            <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
+                                            <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
+                                            <p style="text-align:left; margin-top:3px">Genre: <?php echo $product['genre']; ?></p>
+                                            <p style="text-align:left; margin-top:3px">Stock: <?php echo $product['stock']; ?></p>
+                                        </div>
+                                        <hr style="margin-top:0px; margin-left:0px; margin-right:20px; " >
+
+                                        <div class="modal-right">
+                                            <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
+                                        </div>
+                                        <div class="modal-right-button">
+                                            <!--
+                                            <p>Stock: <?php echo $product['stock']; ?></p>
+                                            -->
+                                            <div class="button-area">
+                                                <?php if (isset($_SESSION['user_id'])) {
+                                                        if ($product['stock'] >= 1) { ?>
+                                                            <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                                                            <?php if ($product['inCart'] >= 1) { ?>
+                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                            <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
+                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                            <?php } else { ?>
+                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                                            <?php } ?>
+                                                        <?php } ?>
+                                                <?php } else { ?>
+                                                    <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                                                <?php } ?>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="close" id="close">
+                                    Close
+                                </button>
+                            </div>
+                        </div>  
                     </div>
+                    <!---
                     <div class="button-area">
-                        <?php if ($product['stock'] == 0) { ?>
-                            <button class="featured-out-of-stock">OUT OF STOCK</button>
-                        <?php } ?>
-                    </div>
+                        <?php if (isset($_SESSION['user_id'])) {
+                            if ($product['stock'] >= 1) { ?>
+                                <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                            <?php } else { 
+                                    if ($product['inCart'] == 1) { ?>
+                                        <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                    <?php } else { ?>
+                                        <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                    <?php } ?>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                        <?php } ?>  
+                    </div> --->
                 </div>
-                <?php endforeach; ?> 
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
@@ -136,12 +198,31 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!---script-------->
     <script type="text/javascript">
-    $(document).on('click','.search',function(){
-        $('.search-bar').addClass('search-bar-active')
-    });
 
-    $(document).on('click','.search-cancel',function(){
-        $('.search-bar').removeClass('search-bar-active')
-    });
-    </script>
+        var modalBtns = document.querySelectorAll(".open");
+
+        modalBtns.forEach(function(btn) {
+            btn.onclick = function() {
+                var modal = btn.getAttribute("data-modal");
+                modal_containter = document.getElementById(modal);
+                modal_containter.classList.add('show');
+            };
+        });
+
+        var closeBtns = document.querySelectorAll(".close");
+
+        closeBtns.forEach(function(btn) {
+            btn.onclick = function() {
+                modal_containter.classList.remove('show');
+            };
+        });
+
+        $(document).on('click','.search',function(){
+            $('.search-bar').addClass('search-bar-active')
+        });
+
+        $(document).on('click','.search-cancel',function(){
+            $('.search-bar').removeClass('search-bar-active')
+        });
+    </script> 
 </body>

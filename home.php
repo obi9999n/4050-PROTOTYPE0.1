@@ -108,7 +108,7 @@ session_start();
 
     <div class="subscribe">
         <h2 class="subscribe__title">SUBSCRIBE TO THE ATLANTA BOOKSTORE NEWSLETTER</h2>
-        <p class="subscribe__copy">Subscribe to keep up with the latest releases exciting updates.</p>
+        <p class="subscribe__copy">Subscribe to keep up with our latest releases and other exciting updates.</p>
         <div class="form">
             <input type="email" class="form__email" placeholder="Enter your email address" />
             <button class="form__button">Send</button>
@@ -128,7 +128,7 @@ session_start();
         </div>
         <!---phone-->
         <div class="phone">
-            <span> <a href="tel:9999990000">Customer Support<i class="gg-phone"></i></a></span>
+            <span><a href="tel:9999990000">Customer Support<i class="gg-phone"></i></a></span>
         </div>
     </div> 
 

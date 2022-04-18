@@ -87,7 +87,7 @@ session_start();
             </div>
         </div>
         <div class="topbannercontainer">
-            <p id="topbannertitle">MARKETPLACE</p>
+            <p id="topbannertitle">Marketplace</p>
             
         </div>
         <div class="dropdown">
