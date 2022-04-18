@@ -18,7 +18,8 @@ session_start();
         $zip_code = $_POST['zip_code'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
-        $birthday = $_POST['birthday'];
+        $birthday = strtotime($_POST["birthday"]);
+        $birthday = date('Y-m-d', $birthday);
 
         if(!empty($first_name) && !empty($last_name) && !empty($email) && !empty($address) && !empty($city) && !empty($state) && !empty($zip_code) && !empty($user_name) && !empty($password) && !empty($birthday) && !is_numeric($user_name)) {
             $usernameQuery = "SELECT DISTINCT * FROM users WHERE UPPER(user_name) LIKE UPPER('$user_name')";
@@ -165,8 +166,8 @@ session_start();
             <input id="text" type="text" name="user_name"><br><br>
 			<label>Password</label>
             <input id="text" type="password" name="password"><br><br>
-            <label>Birthday (YYYY-MM-DD)</label>
-            <input id="text" type="text" name="birthday"><br><br>
+            <label>Birthday</label>
+            <input id="text" type="date" name="birthday"><br><br>
             <input id="button" type="submit" value="Signup"><br><br>
         </form>
     </div>
