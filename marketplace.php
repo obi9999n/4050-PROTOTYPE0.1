@@ -86,10 +86,11 @@ session_start();
                 <p id="topbannertext">Make sure to sign up for our monthly newsletter!</p>
             </div>
         </div>
+        
         <div class="topbannercontainer">
-            <p id="topbannertitle">Marketplace</p>
-            
+            <p id="topbannertitle">Marketplace</p> 
         </div>
+
         <div class="dropdown">
                 <button class="dropbtn">Filter by:</button>
                 <div class="dropdown-content">

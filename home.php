@@ -80,27 +80,32 @@ session_start();
         </div>
     </div>
 
+    <div class="featured-top-banner">
+        <div>
+            <p id="topbannertext">Welcome to Atlanta Bookstore!</p>
+        </div>
+    </div>
 
-    <!--lightslider------->
+    <!--lightslider---
     <ul id="autoWidth" class="cs-hidden">
         <li class="item-a"></li>
         <li class="item-b"></li>
         <li class="item-c"></li>
         <li class="item-d"></li>
         <li class="item-e"></li>
-      </ul>
+      </ul> --->
 
     <!--image-slider---------->
     <div class="homepagecontent">
         <img src="images/pexels-richard-solano-5796567.jpg" alt="">
         <div class="homepage-content-container">
             <div class="left-home-content">
-                <h5>MARCH EXCLUSIVE RELEASES NOW LIVE</h5>
-                <a href="featured.php"><button class="home-buttons" >SHOP THE DROP</button></a>
+                <h5>Check out our bestsellers for the month!</h5>
+                <a href="featured.php"><button class="home-buttons">BESTSELLERS</button></a>
             </div>
             <div class="right-home-content">
-                <h5>SHOP OUR MARKETPLACE</h5>
-                <a href="marketplace.php"><button class="home-buttons" >ENTER THE MARKETPLACE</button></a>
+                <h5>Go through our catalog!</h5>
+                <a href="marketplace.php"><button class="home-buttons">MARKETPLACE</button></a>
 
             </div>
         </div>
