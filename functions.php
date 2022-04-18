@@ -31,6 +31,18 @@ function check_if_admin($con) {
 
 }
 
+function check_if_vendor($con) {
+    $user_data = check_login($con);
+    $user_type = $user_data['user_type'];
+    if ($user_type == '2') {
+        return $user_type;
+    }
+
+    header("Location: account.php");
+    die;
+
+}
+
 function random_num($length) {
 
     $text = "";

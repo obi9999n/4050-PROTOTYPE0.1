@@ -94,7 +94,8 @@ session_start();
                     <p>Error: Field is empty. Please try again.<p>
                 <?php } ?> 
                 <a href="home.php">Back to home!</a><br><br>
-                <a href="logout.php">Click here to logout!</a><br>
+                <a href="logout.php">Click here to logout!</a><br><br>
+                <a href="deleteConfirmation.php">Delete account</a><br>
                 <?php $user_type = $user_data['user_type']; ?>
                 <?php if ($user_type == 1) { ?>
                     <br><a href="admin.php">Admin controls</a><br>
