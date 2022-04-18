@@ -120,7 +120,7 @@ session_start();
     </div>
 
 	<div class="homepagecontent">
-        <img src="images/hypebrands.jpeg" alt="" style="width: 100%">
+        <img src="images/pexels-richard-solano-5796567.jpg" alt="" style="width: 100%">
         <div class="homepage-content-container">
 		<div id="box">
         <form method="post">
