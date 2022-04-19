@@ -129,6 +129,7 @@
             <input type="text" id="fname" name="firstname" placeholder="Steve Jobs">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="reserve"> <input type="checkbox" name="reserve"> Pick-up Order in Store </label>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="45 Baxter Street">
             <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -175,6 +176,7 @@
           
         </div>
         <label>
+          
           <input type="checkbox" checked="checked" name="sameadr"> Shipping Address same as Billing Address
         </label>
         <input type="submit" value="Continue to checkout" class="btn">
