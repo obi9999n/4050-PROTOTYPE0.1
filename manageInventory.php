@@ -18,6 +18,7 @@ session_start();
 	<title>Manage Inventory</title>
 	<link rel="stylesheet" href="css/account.css">
 	<link rel="stylesheet" href="css/manageInventory.css">
+	<button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
 	<center>
 		<h1>Manage Inventory</h1>
 	</center>
@@ -72,7 +73,8 @@ session_start();
 				</tr>
 				<?php endforeach?>
 				<tr>
-					<td><input type="text" style="width:40px"></td>
+					<!-- <td><input type="text" style="width:40px"></td> -->
+					<td></td>
 					<td><input type="text"></td>
 					<td><input type="text"></td>
 					<td><input type="text" style="width:125px"></td>
