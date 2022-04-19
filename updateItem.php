@@ -20,6 +20,7 @@
 <head>
 	<title>Update item</title>
 	<link rel="stylesheet" href="css/account.css">
+	<button onclick="location.href='manageInventory.php'" style="margin: 15px;">Go back</button>
 	<center>
 		<h1>Updating <?php echo $title ?></h1>
 	</center>
