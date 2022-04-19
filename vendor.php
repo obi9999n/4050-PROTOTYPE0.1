@@ -25,9 +25,9 @@ session_start();
 		<div class='container' style='display:flex'>
 			<div id="box">
 				<center><b>Reports</b></center>
-				<center><a href=salesReport.php>sales report</a></center>
-				<center><a href=orderReport.php>order report</a></center>
-				<center><a href=invReport.php>inventory report</a></center>
+				<center><a href=salesReport.php>end of day sales report</a></center>
+				<center><a href=orderReport.php>weekly order report</a></center>
+				<center><a href=invReport.php>weekly inventory report</a></center>
 			</div>
 			<div id="box">
 				<center><a href="manageInventory.php"> <b>View/Manage Inventory</b></a></center>
