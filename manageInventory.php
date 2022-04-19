@@ -5,7 +5,7 @@ session_start();
 	include("functions.php");
 
     $user_data = check_login($con);
-    $type = check_if_admin($con);
+    $type = check_if_vendor_and_admin($con);
 
     $queryProducts = 'SELECT * FROM products WHERE categoryID = 2';
     $products = mysqli_query($con, $queryProducts);

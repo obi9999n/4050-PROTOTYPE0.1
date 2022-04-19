@@ -5,7 +5,7 @@
 	include("functions.php");
 
 	$user_data = check_login($con);
-	$type = check_if_admin($con);
+    $type = check_if_vendor_and_admin($con);
 	$id = $_GET['productID'];
 	$queryTitle = "SELECT productName FROM products WHERE categoryID = 2 AND productID = '$id'";
 	$result = mysqli_query($con, $queryTitle);
