@@ -61,7 +61,7 @@ session_start();
         <p>Results for Search Query: <?php echo $s_query;?></p>
         <div class="featured-container-2">
             <?php foreach ($products as $product) : ?>
-            <div class="featured-item">
+            <div class="featured-item" style="width: 150px; height:275px;">
                 <div>
                     <div class="item-info">
                         <div>
@@ -72,7 +72,7 @@ session_start();
                         </div> -->
                     </div>
                 </div>
-                <div>
+                <div class="image-button-div">
                     <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
                         <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                             width="150px"

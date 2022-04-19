@@ -20,25 +20,74 @@ session_start();
     </head>
 
     <body>
+        <div class="admin-nav">
+                <div>
+                    <button class="admin-nav-button"><a style="color: black;" href="account.php">Account Settings</a></button>
+                </div>
+                <div>
+                    <button class="admin-nav-button"><a style="color: black;" href="home.php">Home</a></button>
+                </div>
+                <div>
+                    <button class="admin-nav-button"><a style="color: black;" href="logout.php">Logout</a></button>
+                </div>
+        </div>
         <center>
-            <p>Weclome!</p><br>
             <div class="tab">
-                <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')">London</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+                <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')">User List</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Book Catalog</button>
                 <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
             </div>
 
             <!-- Tab content -->
             <div id="London" class="tabcontent">
-                <div id="box">
-                    <center><p>Current List of Registered Users:</p></center>
-                    <?php foreach ($users as $user) : ?>
-                        <center><p><?php echo $user['user_name']; ?></p></center>
-                    <?php endforeach; ?>
-                    <a href="account.php">Back to account settings!</a><br><br>
-                    <a href="home.php">Back to home!</a><br><br>
-                    <a href="logout.php">Click here to logout!</a><br>
-                </div>  
+            <div style="display:inline-block">
+		<center>
+            
+			<table class="admin-user-table">
+				<tr>
+					<th>User ID</th>
+					<th>Username</th>
+					<th>Password</th>
+					<th>Date Registered</th>
+					<th>User Type</th>
+					<th>Birthday</th>
+				</tr>
+				<?php foreach ($users as $user) : ?>
+				<tr>
+					<td id="id<?php echo $user['user_id']?>" class="block">
+						<?php echo $user['user_id']?>
+					</td>
+					<td id="title<?php echo $user['user_id']?>" class="data">
+						<?php echo $user['user_name'] ?>
+					</td>
+					<td id="author<?php echo $user['user_id']?>" class="data"><?php echo $user['password'] ?>
+					</td>
+					<td id="genre<?php echo $user['user_id']?>" class="data"><?php echo $user['date'] ?>
+					</td>
+					<td id="stock<?php echo $user['user_id']?>" class="data"><?php echo $user['user_type'] ?>
+					</td>
+					<td id="isbn<?php echo $user['user_id']?>" class="data"><?php echo $user['birthday'] ?>
+					</td>
+					<td id="buttons<?php echo $user['user_id']?>" class="data">
+						<button id="save<?php echo $user['user_id']?>"
+							onclick="location.href='updateUser.php?id=<?php echo $user['user_id'] ?>'">Update </button> <button
+							id="delete<?php echo $user['user_id']?>">Delete</button>
+					</td>
+				</tr>
+				<?php endforeach?>
+
+				<tr>
+					<td><input type="text" style="width:40px"></td>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text" style="width:125px"></td>
+					<td><input type="text" style="width:75px"></td>
+					<td><input type="text" style="width:125px"></td>
+					<td><button>add</button></td>
+				</tr>
+			</table>
+		</center>
+	</div> 
             </div>
 
             <div id="Paris" class="tabcontent">
@@ -49,11 +98,6 @@ session_start();
             <div id="Tokyo" class="tabcontent">
                 <h3>Tokyo</h3>
                 <p>Tokyo is the capital of Japan.</p>
-            </div>
-            <div>
-                <a href="account.php">Back to account settings!</a><br><br>
-                <a href="home.php">Back to home!</a><br><br>
-                <a href="logout.php">Click here to logout!</a><br>
             </div>
         </center>
         

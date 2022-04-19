@@ -273,11 +273,15 @@ nav {
 
 .featured-item {
   flex-direction: column-reverse;
-  width: 150px;
+  width: 150px !important;
   height: 275px;
   margin-top: 15px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.image-button-div {
+  width: 150px;
 }
 /* .item-info:hover {
   background: red;
