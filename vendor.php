@@ -3,6 +3,10 @@ session_start();
 
 	include("connection.php");
 	include("functions.php");
+
+	$user_data = check_login($con);
+    $type = check_if_vendor_and_admin($con);
+	
 ?>
 
 <!doctype HTML>
