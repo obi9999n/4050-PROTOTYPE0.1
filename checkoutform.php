@@ -185,7 +185,7 @@
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $result_count1; ?></b></span></h4>
       <?php foreach ($products as $product) : ?>
-        <p><a href="marketplace.php"><?php echo $product['productName']; ?></a> <a href="addToCart2.php?productID=<?php echo $product['productID']; ?>"> + </a> <a href="removeFromCart2.php?productID=<?php echo $product['productID']; ?>"> - </a> <span class="price">$<?php echo $product['listPrice']; ?></span></p>
+        <p><a href="marketplace.php"><?php echo $product['productName']; ?></a> (Stock: <?php echo $product['stock'] ?>) <a href="addToCart2.php?productID=<?php echo $product['productID']; ?>"> + </a> <a href="removeFromCart2.php?productID=<?php echo $product['productID']; ?>"> - </a> <span class="price">$<?php echo $product['listPrice']; ?></span></p>
         <?php endforeach; ?>
       <?php foreach ($products1 as $product) : ?>        
         <?php $sum+=$product['listPrice']; ?>

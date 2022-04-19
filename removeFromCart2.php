@@ -14,7 +14,7 @@
 
     $product_id = $_GET['productID'];
         
-    $query = "delete from cart where productID = $product_id";
+    $query = "delete from cart where productID = $product_id limit 1";
     $row=$db->exec($query);
     $query = "UPDATE `products` SET inCart = inCart - 1 WHERE productID = $product_id";
     $row=$db->exec($query);
