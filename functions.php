@@ -31,10 +31,10 @@ function check_if_admin($con) {
 
 }
 
-function check_if_vendor($con) {
+function check_if_vendor_and_admin($con) {
     $user_data = check_login($con);
     $user_type = $user_data['user_type'];
-    if ($user_type == '2') {
+    if ($user_type == '2' || $user_type == '1') {
         return $user_type;
     }
 

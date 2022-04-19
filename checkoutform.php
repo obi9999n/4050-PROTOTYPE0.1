@@ -6,10 +6,13 @@
 
   $user_data = check_login($con);
 
-  $queryProducts = 'SELECT * FROM products, cart WHERE products.productID = cart.productID ORDER BY products.productID';
+  $queryProducts = 'SELECT DISTINCT * FROM products, cart WHERE products.productID = cart.productID ORDER BY products.productID';
   $products = mysqli_query($con, $queryProducts);
   $result_count = mysqli_num_rows($products);
+  $queryAllProducts = 'SELECT * FROM products, cart WHERE products.productID = cart.productID ORDER BY products.productID';
   $sum = 0;
+  $products1 = mysqli_query($con, $queryAllProducts);
+  $result_count1 = mysqli_num_rows($products1);
 
   
 ?>
@@ -126,6 +129,7 @@
             <input type="text" id="fname" name="firstname" placeholder="Steve Jobs">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="reserve"> <input type="checkbox" name="reserve"> Pick-up Order in Store </label>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="45 Baxter Street">
             <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -172,6 +176,7 @@
           
         </div>
         <label>
+          
           <input type="checkbox" checked="checked" name="sameadr"> Shipping Address same as Billing Address
         </label>
         <input type="submit" value="Continue to checkout" class="btn">
@@ -180,9 +185,11 @@
   </div>
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $result_count; ?></b></span></h4>
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $result_count1; ?></b></span></h4>
       <?php foreach ($products as $product) : ?>
-        <p><a href="marketplace.php"><?php echo $product['productName']; ?></a> <span class="price">$<?php echo $product['listPrice']; ?></span></p>
+        <p><a href="marketplace.php"><?php echo $product['productName']; ?></a> (Stock: <?php echo $product['stock'] ?>) <a href="addToCart2.php?productID=<?php echo $product['productID']; ?>"> + </a> <a href="removeFromCart2.php?productID=<?php echo $product['productID']; ?>"> - </a> <span class="price">$<?php echo $product['listPrice']; ?></span></p>
+        <?php endforeach; ?>
+      <?php foreach ($products1 as $product) : ?>        
         <?php $sum+=$product['listPrice']; ?>
       <?php endforeach; ?>
       <hr>
