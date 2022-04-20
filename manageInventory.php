@@ -75,15 +75,15 @@ session_start();
 				<tr>
 					<!-- <td><input type="text" style="width:40px"></td> -->
 					<td></td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
-					<td><input type="text" style="width:125px"></td>
-					<td><input type="text" style="width:75px"></td>
-					<td><input type="text" style="width:125px"></td>
-					<td><input type="text" style="width:75px"></td>
-					<td><input type="text" style="width:75px"></td>
-					<td><input type="text" style="width:275px"></td>
-					<td><button>add</button></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><button onclick="location.href='addItem.php'">add new boook</button></td>
 				</tr>
 			</table>
 		</center>
