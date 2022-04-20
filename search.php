@@ -13,6 +13,8 @@ session_start();
     <link rel="shortcut icon" href="images/atllogo.png">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="css/search-style1.css">
+    <link rel="stylesheet" href="css/home-style.css">
+
     <!-----for icons------>
     <link href='https://css.gg/css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
@@ -58,38 +60,36 @@ session_start();
         </div>
     </div>
     <div class="featured-items-container">
-        <p>Results for Search Query: <?php echo $s_query;?></p>
+        <div style="margin-left: 45px;">
+            <p> Results for search: <?php echo $s_query;?></p>
+        </div>
         <div class="featured-container-2">
             <?php foreach ($products as $product) : ?>
-            <div class="featured-item" style="width: 150px; height:275px;">
-                <div>
-                    <div class="item-info">
-                        <div>
-                            <p class="item-text"><?php echo $product['productName'];?></p>
+                <div class="featured-item">
+                    <div>
+                        <div class="item-info">
+                            <div>
+                                <p class="item=text"><?php echo $product['productName']; ?></p>
+                            </div>
                         </div>
-                        <!-- <div>
-                            <p class="item=text"><s>$<?php echo $product['listPrice'];?></s></p>
-                        </div> -->
                     </div>
-                </div>
-                <div class="image-button-div">
-                    <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
-                        <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
-                            width="150px"
-                            height="225px"
-                        >
-                    </button>
-                </div>
-                <div class="modal-container" id="<?php echo $product['productName']; ?>">
+                    <div>
+                        <button class="open" data-target="<?php echo $product['productName']; ?>" data-modal="<?php echo $product['productName']; ?>">
+                            <img class="image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
+                                width="150px"
+                                height="225px"
+                            >
+                        </button>
+                        <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
                                 <div class="modal-body">
-                                    <div style="margin-bottom:40px;">
+                                    <div class="modal-image-wrapper">
                                         <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                                             width="300px"
                                             height="450px"
                                         >
                                     </div>
-                                    <div>
+                                    <div class="modal-right-container">
                                         <div class="modal-right">
                                             <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
                                             <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
@@ -101,8 +101,10 @@ session_start();
                                         <div class="modal-right">
                                             <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
                                         </div>
-                                        <div class="modal-right">
+                                        <div class="modal-right-button">
+                                            <!--
                                             <p>Stock: <?php echo $product['stock']; ?></p>
+                                            -->
                                             <div class="button-area">
                                                 <?php if (isset($_SESSION['user_id'])) {
                                                         if ($product['stock'] >= 1) { ?>
@@ -129,15 +131,25 @@ session_start();
                                     Close
                                 </button>
                             </div>
-                        </div>
-                <!---<div class="button-area">
-                    <?php if ($product['stock'] == 0) { ?>
-                        <button class="featured-out-of-stock">OUT OF STOCK</button>
-                    <?php } else { ?>
-                        <button class="featured-out-of-stock">ADD TO CART</button>
-                    <?php } ?>
-                </div> --->
-            </div>
+                        </div>  
+                    </div>
+                    <!---
+                    <div class="button-area">
+                        <?php if (isset($_SESSION['user_id'])) {
+                            if ($product['stock'] >= 1) { ?>
+                                <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
+                            <?php } else { 
+                                    if ($product['inCart'] == 1) { ?>
+                                        <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                    <?php } else { ?>
+                                        <button class="featured-out-of-stock">OUT OF STOCK</button>
+                                    <?php } ?>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <button class="featured-out-of-stock"><a href="login.php">Login to add to cart!</a></button>
+                        <?php } ?>  
+                    </div> --->
+                </div>
             <?php endforeach; ?> 
         </div>
     </div>
