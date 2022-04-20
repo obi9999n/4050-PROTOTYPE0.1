@@ -4,8 +4,25 @@ body {
   font-family: poppins;
 }
 
-a {
-    text-decoration: none;
+.modal-right-button {
+  margin-top: auto;
+}
+
+.featured-out-of-stock a {
+  text-decoration: none;
+  color: white;
+}
+
+.modal-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-right-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .re-search-bar {
@@ -44,7 +61,7 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 10px 25px 25px 25px;
+  margin: 10px 90px 25px 90px;
   gap: 40px 20px;
 }
 
@@ -56,13 +73,14 @@ a {
 }
 
 .featured-out-of-stock {
-    width: 360px;
-    height: 45px;
-    cursor: pointer;
-    background: rgb(255, 255, 255);
-    border-radius: 5px;
-    border-color: white;
-  }
+  width: 360px;
+  height: 45px;
+  cursor: pointer;
+  background: rgb(0, 0, 0);
+  border: none;
+  text-decoration: none;
+  color: white;
+}
 
 .item-info {
   display: flex;
@@ -83,51 +101,52 @@ a {
 }
 
 .modal-container {
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    pointer-events: none;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  .modal-container.show {
-    pointer-events: auto;
-    opacity: 1;
-  }
-  
-  .modal {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 30px 50px;
-    width: 700px;
-    max-width: 100%;
-    text-align: center;
-  }
-  
-  #close {
-    color: white;
-    background-color: darkblue;
-    border-radius: 5px;
-  }
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
 
-  .modal-body {
-    display: flex;
-    flex-direction: row;
-  }
+.modal-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
 
-  .modal-image {
-    padding-right: 40px;
-  }
-  
-  .open {
-    border: none;
-    background-color: aliceblue;
-    padding: 0px;
-  }
+.modal {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 30px 50px;
+  width: 700px;
+  max-width: 100%;
+  text-align: center;
+}
+
+#close {
+  color: white;
+  background-color: darkblue;
+  border-radius: 5px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.modal-image {
+  padding-right: 40px;
+}
+
+.open {
+  border: none;
+  background-color: aliceblue;
+  padding: 0px;
+}
