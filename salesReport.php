@@ -5,8 +5,8 @@ session_start();
 	include("functions.php");
 
     $user_data = check_login($con);
-//   $orders = query on orders table and return number of rows
-//	$totalSales = query on orders table and return sum of all totals
+//   $orders = query on orders table and return number of rows where dateplaced is today
+//	$totalSales = query on orders table and return sum of all totals where date placed is today
 ?>
 
 <!doctype HTML>
