@@ -122,6 +122,9 @@ session_start();
                     <?php if ($user_type == 1) { ?>
                         <button class="featured-out-of-stock"><a href="admin.php">Admin controls</a><br></button>
                     <?php } ?>
+                    <?php if ($user_type == 2) { ?>
+                        <button class="featured-out-of-stock"><a href="vendor.php">Vendor controls</a><br></button>
+                    <?php } ?>
                 </div>
                 
             </form>
