@@ -55,51 +55,75 @@ session_start();
         <center><p>Welcome <?php echo $user_data['user_name']; ?>!<br></center>
         <div id="box">
             <form method="post">
-                <p>Change username:</p>
-			    <label>New Username</label>
-                <input id="text" type="text" name="user_name"><br><br>
-                <input id="button" type="submit" name="submitUsername" value="Submit"><br><br>
-                <?php if ($emptyUser == 1) { ?>
-                    <p>Error: Field is empty. Please try again.<p>
-                <?php } ?> 
-                <?php if ($validUsername == 1) { ?>
-                    <p>Error: Username is already taken. Please try again.<p>
-                <?php } ?> 
-                <p>Change password:</p>
-			    <label>New Password</label>
-                <input id="text" type="password" name="password"><br><br>
-                <input id="button" type="submit" name="submitPassword" value="Submit"><br><br>
-                <?php if ($emptyPassword == 1) { ?>
-                    <p>Error: Field is empty. Please try again.<p>
-                <?php } ?> 
-                <p>Change Address:</p>
-			    <label>New Address</label><br>
-                <input id="text" type="password" name="address"><br><br>
-                <input id="button" type="submit" name="submitAddress" value="Submit"><br><br>
-                <?php if ($emptyPassword == 1) { ?>
-                    <p>Error: Field is empty. Please try again.<p>
-                <?php } ?> 
-                <p>Change City:</p>
-			    <label>New City</label><br>
-                <input id="text" type="password" name="city"><br><br>
-                <input id="button" type="submit" name="submitCity" value="Submit"><br><br>
-                <?php if ($emptyPassword == 1) { ?>
-                    <p>Error: Field is empty. Please try again.<p>
-                <?php } ?> 
-                <p>Change State:</p>
-			    <label>New State</label><br>
-                <input id="text" type="password" name="state"><br><br>
-                <input id="button" type="submit" name="submitState" value="Submit"><br><br>
-                <?php if ($emptyPassword == 1) { ?>
-                    <p>Error: Field is empty. Please try again.<p>
-                <?php } ?> 
-                <a href="home.php">Back to home!</a><br><br>
-                <a href="logout.php">Click here to logout!</a><br><br>
-                <a href="deleteConfirmation.php">Delete account</a><br>
-                <?php $user_type = $user_data['user_type']; ?>
-                <?php if ($user_type == 1) { ?>
-                    <br><a href="admin.php">Admin controls</a><br>
-                <?php } ?>
+                <div class="account-section">
+                    <p>Change username:</p>
+                    <label>New Username</label>
+                    <input style="width: 275px;" id="text" type="text" name="user_name"><br>
+                    <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitUsername" value="Submit"><br><br>
+                    <?php if ($emptyUser == 1) { ?>
+                        <p>Error: Field is empty. Please try again.<p>
+                    <?php } ?> 
+                    <?php if ($validUsername == 1) { ?>
+                        <p>Error: Username is already taken. Please try again.<p>
+                    <?php } ?> 
+                    <hr>
+                </div>
+                
+                <div class="account-section">
+                    <p>Change password:</p>
+                    <label>New Password</label>
+                    <input style="width: 275px;" id="text" type="password" name="password"><br>
+                    <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitPassword" value="Submit"><br><br>
+                    <?php if ($emptyPassword == 1) { ?>
+                        <p>Error: Field is empty. Please try again.<p>
+                    <?php } ?>
+                    <hr>
+                </div>
+                 
+                <div class="account-section">
+                    <p>Change Address:</p>
+                    <label>New Address</label>
+                    <input style="width: 275px;" id="text" type="password" name="address"><br>
+                    <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitAddress" value="Submit"><br><br>
+                    <?php if ($emptyPassword == 1) { ?>
+                        <p>Error: Field is empty. Please try again.<p>
+                    <?php } ?>
+                    <hr>
+                </div>
+                 
+                <div class="account-section">
+                    <p>Change City:</p>
+                    <label>New City</label>
+                    <input style="width: 275px;" id="text" type="password" name="city"><br>
+                    <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitCity" value="Submit"><br><br>
+                    <?php if ($emptyPassword == 1) { ?>
+                        <p>Error: Field is empty. Please try again.<p>
+                    <?php } ?> 
+                    <hr>
+                </div>
+                
+                <div class="account-section">
+                    <p>Change State:</p>
+                    <label>New State</label>
+                    <input style="width: 275px;" id="text" type="password" name="state"><br>
+                    <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitState" value="Submit"><br><br>
+                    <?php if ($emptyPassword == 1) { ?>
+                        <p>Error: Field is empty. Please try again.<p>
+                    <?php } ?> 
+                    <hr>
+                </div>
+                <hr>
+
+                <div class="account-section">
+                    <button class="featured-out-of-stock"><a href="home.php">Back to home!</a><br></button>
+                    <button class="featured-out-of-stock"><a href="logout.php">Click here to logout!</a><br></button>
+                    <button class="featured-out-of-stock"><a href="deleteConfirmation.php">Delete account</a><br></button>
+                    <?php $user_type = $user_data['user_type']; ?>
+                    <?php if ($user_type == 1) { ?>
+                        <button class="featured-out-of-stock"><a href="admin.php">Admin controls</a><br></button>
+                    <?php } ?>
+                </div>
+                
             </form>
         </div>       
     </body>
