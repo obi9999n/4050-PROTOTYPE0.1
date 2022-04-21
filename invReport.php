@@ -9,6 +9,7 @@
 	//	$totalSales = query on orders table and return sum of all totals
 	$queryProducts = 'SELECT * FROM products WHERE categoryID = 2 ORDER BY stock';
 	$products = mysqli_query($con, $queryProducts);
+	$invSum = 0;
 ?>
 
 <!doctype HTML>
@@ -25,7 +26,12 @@
 	<button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
 	<center>
 		<div id="box">
-			<p>Total books in inventory:</p>
+			<?php foreach ($products as $product) : ?>
+				<?php
+				$sum += intval($product['stock']);				
+				?>
+			<?php endforeach ?>
+			<p>Total books in inventory: <?php echo $sum?></p>
 		</div>
 		<div id="box">
 			<p><b>Low stock books (<10)</b></p>
