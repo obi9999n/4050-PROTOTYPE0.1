@@ -15,12 +15,12 @@ session_start();
 <html lang="english">
 
 <head>
-	<title>Manage Inventory</title>
+	<title>Manage inventory</title>
 	<link rel="stylesheet" href="css/account.css">
 	<link rel="stylesheet" href="css/manageInventory.css">
 	<button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
 	<center>
-		<h1>Manage Inventory</h1>
+		<h1>Manage inventory</h1>
 	</center>
 </head>
 
@@ -66,9 +66,9 @@ session_start();
 					</td>
 					<td id="buttons<?php echo $product['productID']?>">
 						<button id="save<?php echo $product['productID']?>"
-							onclick="location.href='updateItem.php?id=<?php echo $product['productID'] ?>'">update
+							onclick="location.href='updateItem.php?id=<?php echo $product['productID'] ?>'">Update
 						</button> <button id="delete<?php echo $product['productID']?>"
-							onclick="location.href='deleteItem.php?id=<?php echo $product['productID'] ?>'">delete</button>
+							onclick="location.href='deleteItem.php?id=<?php echo $product['productID'] ?>'">Delete</button>
 					</td>
 				</tr>
 				<?php endforeach?>
@@ -83,7 +83,7 @@ session_start();
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><button onclick="location.href='addItem.php'">add new boook</button></td>
+					<td><button onclick="location.href='addItem.php'">Add new boook</button></td>
 				</tr>
 			</table>
 		</center>

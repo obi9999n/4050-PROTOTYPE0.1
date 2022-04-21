@@ -11,19 +11,23 @@ session_start();
 
 <!doctype HTML>
 <html lang="english">
-    <head>
-        <link rel="stylesheet" href="css/account.css">
-        <center><h1>End-of-day sales report</h1></center>
-    </head>
 
-    <body>
+<head>
+    <link rel="stylesheet" href="css/account.css">
+    <center>
+        <h1>Orders Report</h1>
+    </center>
+</head>
+
+<body>
     <button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
-        <div id="box">		   
-            <center>
-			  Orders placed today: <br>
-			  Total sales:
-		  </center>
-        </div>       
-    </body>
+    <div id="box">
+        <center>
+            <p>Orders placed: </p>
+            <p>Fulfilled online: </p>
+            <p>Fulfilled in-store:</p>
+        </center>
+    </div>
+</body>
 
 </html>

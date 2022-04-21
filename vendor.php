@@ -25,15 +25,15 @@ session_start();
 		<div class='container' style='display:flex'>
 			<div id="box">
 				<center><b>Reports</b></center>
-				<center><a href=salesReport.php>end of day sales report</a></center>
-				<center><a href=orderReport.php>weekly order report</a></center>
-				<center><a href=invReport.php>weekly inventory report</a></center>
+				<center><a href=salesReport.php>End of day sales report</a></center>
+				<center><a href=orderReport.php>Orders report</a></center>
+				<center><a href=invReport.php> Inventory report</a></center>
 			</div>
 			<div id="box">
-				<center><a href="manageInventory.php"> <b>View/Manage Inventory</b></a></center>
+		<a href="manageInventory.php"> <b>View/Manage inventory</b></a>
 			</div>
 			<div id="box">
-				<center><a href="manageOrders.php"> <b>View/Manage Orders</b></a></center>
+				<a href="manageOrders.php"> <b>View/Manage orders</b></a>
 			</div>
 		</div>
 	</center>
