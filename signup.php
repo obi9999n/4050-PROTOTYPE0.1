@@ -129,7 +129,8 @@ session_start();
         <div class="homepage-content-container">
         <div id="box">
         <form method="post">
-            <center><div style="font-size: 20px; margin-right: 10px; padding-bottom: 10px; color: black">Account Registration</div><br></center>
+            <b><div style="font-size: 20px; margin-right: 10px; padding-bottom: 10px; color: black">Account Registration</div></b>
+            <hr style="margin: 8px;">
             <?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
 				<center><p>Please enter some valid information.</p></center>
@@ -138,11 +139,11 @@ session_start();
 				<?php $validUsername = 0; ?>
 				<center><p>Username is not valid. Please try again.</p></center>
 			<?php } ?>
-            <div>
+            <div class="signup-section">
                 <label>First Name</label>
                 <input id="text" type="text" name="first_name"><br><br>
             </div>
-            <div>
+            <div class="signup-section">
                 <label>Last Name</label>
                 <input id="text" type="text" name="last_name"><br><br>
             </div>
@@ -168,7 +169,8 @@ session_start();
             <input id="text" type="password" name="password"><br><br>
             <label>Birthday</label>
             <input id="text" type="date" name="birthday"><br><br>
-            <input id="button" type="submit" value="Signup"><br><br>
+            <input style="width: 475px;" id="button" type="submit" value="Signup"><br><br>
+            <a href="login.php">Back to login</a>
         </form>
     </div>
     </div>

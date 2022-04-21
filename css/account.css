@@ -443,7 +443,7 @@ nav {
 #box {
   background-color: rgb(208, 233, 255);
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 300px;
   padding: 20px;
   margin-bottom: 40px;
@@ -453,7 +453,7 @@ nav {
   height: 45px;
   cursor: pointer;
   margin-bottom: 20px;
-  background: rgb(59, 59, 59);
+  background: rgb(0, 0, 0);
   border: none;
   text-decoration: none;
   color: white;
@@ -464,7 +464,7 @@ nav {
   height: 20px;
   cursor: pointer;
   margin-bottom: 20px;
-  background: rgb(59, 59, 59);
+  background: rgb(0, 0, 0);
   border: none;
   text-decoration: none;
   color: white;

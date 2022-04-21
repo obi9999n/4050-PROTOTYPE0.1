@@ -51,80 +51,80 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<link rel="shortcut icon" href="images/atllogo3.png">
-    <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="css/home-style.css">
+
+    <link rel="stylesheet" href="style/normalize.css">
     <!-----for icons------>
     <link href='https://css.gg/css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
     <link href='https://cdn.jsdelivr.net/npm/css.gg/icons/all.css' rel='stylesheet'>
 </head>
 <body>
-<div class="page-title-container">
-        <h2 class="page-title">ATLANTA BOOKSTORE</h2>
-    </div>
-    <!--navigation---------->
-    <nav>
-    <!---menu-bar------>
-        <div class="navigation">
-            <!----logo---->
-            <div class="logo-plus-title">
-                <a href="home.php" class="logo">
-                    <img src="images/atllogo3.png" alt="logo image">
-                </a>
-            </div>
-            <!--menu----->
-            <ul class="menu">
-                <li><a href="home.php">Home</a></li>
-                <li><a href="featured.php">Featured</a>
-                       
-                </li>
-                <li><a href="marketplace.php">Marketplace</a></li>
-            </ul>
-            <!--right-menu------>
-            <div class="right-menu">
-                <!--search--->
-                <a href="#" class="search">
-                    <i class="gg-search"></i>
-                </a>
-                <!---user---->
-                <?php if(isset($_SESSION['user_id'])) { ?>
-                    <a href="account.php">
-                        <i class="gg-user"></i>
+    <div>
+        <div class="page-title-container">
+            <h2 class="page-title">ATLANTA BOOKSTORE</h2>
+        </div>
+        <nav>
+        <!---menu-bar------>
+            <div class="navigation">
+                <!----logo---->
+                <div class="logo-plus-title">
+                    <a href="home.php" class="logo">
+                        <img src="images/atllogo3.png" alt="logo image">
                     </a>
-                <?php } else { ?>
-                    <a href="login.php">
-                        <i class="gg-user"></i>
-                     </a>
-                <?php } ?>
-                <!---cart----->
-                <a href="checkoutform.php">
-                    <i class="gg-shopping-cart"></i>
+                </div>
+                <!--menu----->
+                <ul class="menu">
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="featured.php">Featured</a></li>
+                    <li><a href="marketplace.php">Marketplace</a></li>
+                </ul>
+                <!--right-menu------>
+                <div class="right-menu">
+                    <!--search--->
+                    <a href="#" class="search">
+                        <i class="gg-search"></i>
+                    </a>
+                    <!---user---->
+                    <?php if(isset($_SESSION['user_id'])) { ?>
+                        <a href="account.php">
+                            <i class="gg-user"></i>
+                        </a>
+                    <?php } else { ?>
+                        <a href="login.php">
+                            <i class="gg-user"></i>
+                        </a>
+                    <?php } ?>
+                    <!---cart----->
+                    <a href="checkoutform.php">
+                        <i class="gg-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    
+        <!--search-bar------>
+        <div class="search-bar">
+            <!--search-input-->
+            <div class="search-input">
+                <form action="search.php" method="GET">
+                <!--input-->
+                    <input id="text" name="s_query" placeholder="Search for Product"/>
+                </form>
+                <!--cancel-button---->
+                <a href="#" class="search-cancel">
+                    <i class="gg-close"></i>
                 </a>
             </div>
         </div>
-    </nav>
-
-    <!--search-bar------>
-    <div class="search-bar">
-        <!--search-input-->
-        <div class="search-input">
-            <form action="search.php" method="GET">
-            <!--input-->
-                <input id="text" name="s_query" placeholder="Search for Product"/>
-            </form>
-            <!--cancel-button---->
-            <a href="#" class="search-cancel">
-                <i class="gg-close"></i>
-            </a>
-        </div>
     </div>
-
 	<div class="homepagecontent">
         <img src="images/pexels-richard-solano-5796567.jpg" alt="" style="width: 100%">
         <div class="homepage-content-container">
 		<div id="box">
         <form method="post">
-            <div style="font-size: 20px; margin: 10px; color: black">Login</div>
+            <b><div style="font-size: 20px; margin: 5px; color: black">Login</div></b>
+            <hr>
 			<?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
 				<p>Please enter some valid information.</p>
@@ -133,14 +133,25 @@ session_start();
 				<?php $validInfoNeeded = 0; ?>
 				<p>Wrong username or password.</p>
 			<?php } ?>
-			<label>Username</label>
-            <input id="text" type="text" name="user_name"><br><br>
-			<label>Password</label>
-            <input id="text" type="password" name="password"><br><br>
-			<label>Remember me</label>
-			<input type="checkbox" value="1" name="check"><br><br>
-            <input id="button" type="submit" value="Login"><br><br>
-            <a href="signup.php">Click to Signup!</a><br><br>
+            <div class="login-section">
+                <label>Username</label>
+                <input id="text" type="text" name="user_name"><br>
+            </div>
+			
+            <div class="login-section">
+                <label>Password</label>
+                <input id="text" type="password" name="password"><br>
+            </div>
+			
+            <div class="login-section">
+                <label>Remember me</label>
+                <input type="checkbox" value="1" name="check"><br><br>
+            </div>
+			<div class="login-section">
+                <input style="width: 260px;" id="button" type="submit" value="Login"><br><br>
+                <center><a href="signup.php">Click to Signup!</a><br></center>
+            </div>
+            
         </form>
     </div>
         </div>
