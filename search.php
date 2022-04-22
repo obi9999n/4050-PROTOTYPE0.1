@@ -110,8 +110,7 @@ session_start();
                                                         if ($product['stock'] >= 1) { ?>
                                                             <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
                                                             <?php if ($product['inCart'] >= 1) { ?>
-                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
-                                                            <?php } ?>
+                                                                <button style="margin-left: 10px; background-color: darkred;" class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>                                                            <?php } ?>
                                                         <?php } else { ?>
                                                             <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
                                                                 <button class="featured-out-of-stock">OUT OF STOCK</button>
