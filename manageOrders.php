@@ -7,8 +7,8 @@ session_start();
     $user_data = check_login($con);
     $type = check_if_vendor_and_admin($con);
 
-    $queryProducts = 'SELECT * FROM products WHERE categoryID = 2';
-    $products = mysqli_query($con, $queryProducts);
+    $queryOrders = 'SELECT * FROM orders';
+    $orders = mysqli_query($con, $queryOrders);
 
 ?>
 <!doctype HTML>
@@ -35,49 +35,44 @@ session_start();
 					<th>Total</th>
 					<th>In-Store?</th>
 					<th>Fulfilled?</th>
+					<th>Shipping Type</th>
+					<th>Shipping Address</th>
 					<th>Date Placed</th>
 					<th></th>
 				</tr>
-				<?php foreach ($products as $product) : ?>
+				<?php foreach ($orders as $order) : ?>
 				<tr>
-					<td id="id<?php echo $product['productID']?>">
-						<?php echo $product['productID']?>
+					<td id="id<?php echo $order['id']?>">
+						<?php echo $order['id']?>
 					</td>
-					<td id="title<?php echo $product['productID']?>">
-						<?php echo $product['productName'] ?>
+					<td id="oNum<?php echo $order['id']?>">
+						<?php echo $order['orderNumber'] ?>
 					</td>
-					<td id="author<?php echo $product['productID']?>"><?php echo $product['author'] ?>
+					<td id="user<?php echo $order['id']?>"><?php echo $order['user_name'] ?>
 					</td>
-					<td id="genre<?php echo $product['productID']?>"><?php echo $product['genre'] ?>
+					<td id="total<?php echo $order['id']?>"><?php echo $order['total'] ?>
 					</td>
-					<td id="stock<?php echo $product['productID']?>"><?php echo $product['stock'] ?>
+					<td id="in-store<?php echo $order['id']?>"><?php echo $order['in-store'] ?>
 					</td>
-					<td id="isbn<?php echo $product['productID']?>"><?php echo $product['ISBN'] ?>
+					<td id="fulfilled<?php echo $order['id']?>"><?php echo $order['fulfilled'] ?>
 					</td>
-					<td id="type<?php echo $product['productID']?>">
-						<?php echo $product['productCode'] ?>
+					<td id="shipping<?php echo $order['id']?>">
+						<?php echo $order['shipping'] ?>
 					</td>
-					<td id="buttons<?php echo $product['productID']?>">
-						<button id="save<?php echo $product['productID']?>"
-							onclick="location.href='updateItem.php?id=<?php echo $product['productID'] ?>'">update
-						</button> <button id="delete<?php echo $product['productID']?>"
-							onclick="location.href='deleteItem.php?id=<?php echo $product['productID'] ?>'">delete</button>
+					<td id="address<?php echo $order['id']?>">
+						<?php echo $order['address'] ?>
+					</td>
+					<td id="date<?php echo $order['id']?>">
+						<?php echo $order['datePlaced'] ?>
+					</td>
+					<td id="buttons<?php echo $order['id']?>">
+						<button id="update<?php echo $order['id']?>"
+							onclick="location.href='updateOrder.php?id=<?php echo $order['id'] ?>'">update
+						</button> <button id="delete<?php echo $order['id']?>"
+							onclick="location.href='deleteOrder.php?id=<?php echo $order['id'] ?>'">delete</button>
 					</td>
 				</tr>
 				<?php endforeach?>
-				<tr>
-					<!-- <td><input type="text" style="width:40px"></td> -->
-					<td></td>
-					<td><input type="text"></td>
-					<td><input type="text"></td>
-					<td><input type="text" style="width:125px"></td>
-					<td><input type="text" style="width:75px"></td>
-					<td><input type="text" style="width:125px"></td>
-					<td><input type="text" style="width:75px"></td>
-					<td><input type="text" style="width:75px"></td>
-					<td><input type="text" style="width:275px"></td>
-					<td><button>add</button></td>
-				</tr>
 			</table>
 		</center>
 	</div>
