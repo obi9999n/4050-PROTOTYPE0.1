@@ -11,7 +11,7 @@ mail($email,"Registration Confirmation", $body);
 ?>
 <head>
 	<link rel="stylesheet" href="css/account.css">
-	<title>Confirm</title>
+	<title>Confirm registration</title>
 	<center>
 		<h2>Check your email for verification code</h2>
 	</center>
