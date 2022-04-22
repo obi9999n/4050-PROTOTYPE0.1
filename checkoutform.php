@@ -11,6 +11,8 @@
   $result_count = mysqli_num_rows($products);
   $queryAllProducts = 'SELECT * FROM products, cart WHERE products.productID = cart.productID ORDER BY products.productID';
   $sum = 0;
+  $queryPromos = 'SELECT * FROM promos WHERE 1';
+  $promos = mysqli_query($con, $queryPromos);
   $products1 = mysqli_query($con, $queryAllProducts);
   $result_count1 = mysqli_num_rows($products1);
 
@@ -124,7 +126,7 @@
       
         <div class="row">
           <div class="col-50">
-            <h3>Billing Address</h3>
+            <h3>Shipping Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
             <input type="text" id="fname" name="firstname" placeholder="Steve Jobs">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -133,7 +135,7 @@
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="45 Baxter Street">
             <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="Georgia">
+            <input type="text" id="city" name="city" placeholder="Athens">
 
             <div class="row">
               <div class="col-50">
@@ -156,6 +158,7 @@
               <i class="fa fa-cc-mastercard" style="color:red;"></i>
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
+            <label for="reserve"> <input type="checkbox" name="reserve"> Cash (Pick-up Order in Store) </label>
             <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="Steve Jobs">
             <label for="ccnum">Credit card number</label>
@@ -177,7 +180,7 @@
         </div>
         <label>
           
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping Address same as Billing Address
+          <input type="checkbox" checked="checked" name="sameadr"> Billing Address same as Shipping Address
         </label>
         <input type="submit" value="Continue to checkout" class="btn">
       </form>
@@ -194,6 +197,18 @@
       <?php endforeach; ?>
       <hr>
       <p>Total<span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>
+      <form action="checkoutform.php">
+        <label for="promo">Promo Code<input type="text" id ="code" name="code"></label>
+        <input type="submit" value="Add Promo" class="btn">
+        
+        <?php foreach ($promos as $promo) : ?>
+          <?php if ($_REQUEST['code'] == $promos['promocode']) : ?>
+            <p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum * ((100 - $promo['promopercent'])/100);?></b></span></p>
+          <?php endif;?> 
+        <?php endforeach; ?>
+          
+        
+      </form>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2022 at 10:30 PM
+-- Generation Time: Apr 18, 2022 at 05:34 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -31,15 +31,24 @@ CREATE TABLE `cart` (
   `productID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`productID`) VALUES
-(5),
-(18);
-
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `promos`
+--
+CREATE TABLE `promos` (
+  `promoID` int(11) NOT NULL,
+  `promocode` varchar(5) NOT NULL,
+  `promopercent` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `promos`
+--
+
+INSERT INTO `promos` (`promoID`, `promocode`, `promopercent`) VALUES
+(1,'ASDFG',20),
+(2,'ABCDE',25);
 
 --
 -- Table structure for table `categories`
@@ -57,21 +66,6 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
 (1, 'featured'),
 (2, 'marketplace');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
-  `orderNumber` int(11) NOT NULL,
-  `user_name` varchar(100) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `in-store` int(11) NOT NULL,
-  `fulfilled` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -103,7 +97,7 @@ INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`,
 (2, 2, 'ebook', 'How To Stop Time', 'Matt Haig', '9780525522898', '10.99', 2000, 'Romance', 0, 'images/howtostoptimeebook.jpeg', 0),
 (3, 2, 'book', 'Freezing Order', 'Bill Browder', '9781982153281', '22.99', 1, 'Nonfiction', 0, 'images/freezingorderbook.jpeg', 0),
 (4, 2, 'ebook', 'Hello Molly', 'Molly Shannon', '9780783545042', '27.99', 1, 'Nonfiction', 0, 'images/hellomollybook.jpeg', 0),
-(5, 2, 'book', 'Against All Odds', 'Alex Kershaw', '9780595387519', '14.99', 9, 'Nonfiction', 0, 'images/againstalloddsbook.jpeg', 1),
+(5, 2, 'book', 'Against All Odds', 'Alex Kershaw', '9780595387519', '14.99', 10, 'Nonfiction', 0, 'images/againstalloddsbook.jpeg', 0),
 (6, 2, 'book', 'Portrait Of A Thief', 'Grace D. Li', '9780593184738', '19.99', 2000, 'Nonfiction', 0, 'images/portraitofathiefbook.jpeg', 0),
 (7, 2, 'book', 'Black Ops', 'Ric Prado', '9780744012736', '15.99', 1, 'Nonfiction', 0, 'images/blackopsbook.jpeg', 0),
 (8, 2, 'book', 'Life of Pi', 'Yann Martel', '9780770430078', '34.95', 1, 'Fiction', 1, 'images/lifeofpi.jpeg', 0),
@@ -116,7 +110,7 @@ INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`,
 (15, 2, 'book', 'Educated', 'Tara Westover', '9780399590504', '15.99', 95, 'Nonfiction', 1, 'images/educatedamemoir.jpeg', 0),
 (16, 2, 'book', 'Night', 'Elie Wiesel', '9780374500016', '10.80', 250, 'Nonfiction', 1, 'images/night.jpeg', 0),
 (17, 2, 'book', 'The Maid', 'Nita Prose', '9780593356159', '12.99', 400, 'Mystery', 1, 'images/themaid.jpeg', 0),
-(18, 2, 'book', 'Cry Wolf', 'Hans Rosenfeldt', '9781335425713', '13.99', 299, 'Mystery', 1, 'images/crywolf.jpeg', 1),
+(18, 2, 'book', 'Cry Wolf', 'Hans Rosenfeldt', '9781335425713', '13.99', 300, 'Mystery', 1, 'images/crywolf.jpeg', 0),
 (19, 2, 'book', 'The Harbor', 'Katrine Engberg', '9781797136318', '12.99', 100, 'Mystery', 0, 'images/theharbor.jpeg', 0),
 (20, 2, 'book', 'The Family Plot', 'Megan Collins', '9781432893293', '22.99', 150, 'Mystery', 1, 'images/thefamilyplot.jpeg', 0),
 (21, 2, 'book', 'Dream Work', 'Mary Oliver', '9780871130693', '10.99', 150, 'Poetry', 0, 'images/dreamwork.jpeg', 0),
@@ -169,12 +163,6 @@ INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `email`, `address
 --
 
 --
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -189,12 +177,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
