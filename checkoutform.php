@@ -202,7 +202,7 @@
         <input type="submit" value="Add Promo" class="btn">
         
         <?php foreach ($promos as $promo) : ?>
-          <?php if ($_REQUEST['code'] == $promos['promocode']) : ?>
+          <?php if ($_REQUEST['code'] == $promo['promocode']) : ?>
             <p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum * ((100 - $promo['promopercent'])/100);?></b></span></p>
           <?php endif;?> 
         <?php endforeach; ?>
