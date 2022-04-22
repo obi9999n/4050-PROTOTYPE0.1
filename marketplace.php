@@ -92,7 +92,7 @@ session_start();
         </div>
 
         <div class="dropdown">
-                <button class="dropbtn">Filter by:</button>
+                <button style="color: black;" class="dropbtn">Filter by:</button>
                 <div class="dropdown-content">
                     <a href="#">Genre</a>
                     <a href="#">Bestsellers</a>
@@ -147,7 +147,7 @@ session_start();
                                                         if ($product['stock'] >= 1) { ?>
                                                             <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
                                                             <?php if ($product['inCart'] >= 1) { ?>
-                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                                <button style="margin-left: 10px; background-color: darkred;" class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
                                                             <?php } ?>
                                                         <?php } else { ?>
                                                             <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>

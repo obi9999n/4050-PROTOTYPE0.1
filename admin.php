@@ -71,7 +71,7 @@ session_start();
                         </td>
                         <td id="buttons<?php echo $user['user_id']?>" class="data">
                             <button id="save<?php echo $user['user_id']?>"
-                                onclick="location.href='updateUser.php?id=<?php echo $user['user_id'] ?>'">Update </button> <button
+                                onclick="location.href='updateuseradmin.php?id=<?php echo $user['user_id'] ?>'">Update </button> <button
                                 id="delete<?php echo $user['user_id']?>">Delete</button>
                         </td>
                     </tr>
@@ -130,9 +130,9 @@ session_start();
                         </td>
                         <td id="buttons<?php echo $product['productID']?>">
                             <button id="save<?php echo $product['productID']?>"
-                                onclick="location.href='updateItem.php?id=<?php echo $product['productID'] ?>'">update
+                                onclick="location.href='updateitemadmin.php?id=<?php echo $product['productID'] ?>'">update
                             </button> <button id="delete<?php echo $product['productID']?>"
-                                onclick="location.href='deleteItem.php?id=<?php echo $product['productID'] ?>'">delete</button>
+                                onclick="location.href='deleteitemadmin.php?id=<?php echo $product['productID'] ?>'">delete</button>
                         </td>
                     </tr>
                     <?php endforeach?>
@@ -147,7 +147,7 @@ session_start();
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button onclick="location.href='addItem.php'">add new boook</button></td>
+                        <td><button onclick="location.href='additemadmin.php'">Add book</button></td>
                     </tr>
                 </table>
             </div>
