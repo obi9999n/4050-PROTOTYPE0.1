@@ -29,15 +29,13 @@ session_start();
 		<center>
 			<table>
 				<tr>
-					<th>field1</th>
-					<th>field2</th>
-					<th>field3</th>
-					<th>field4</th>
-					<th>field5</th>
-					<th>field6</th>
-					<th>field7</th>
-					<th>field8</th>
-					<th>field9</th>
+					<th>ID</th>
+					<th>Order Number</th>
+					<th>User</th>
+					<th>Total</th>
+					<th>In-Store?</th>
+					<th>Fulfilled?</th>
+					<th>Date Placed</th>
 					<th></th>
 				</tr>
 				<?php foreach ($products as $product) : ?>
@@ -58,11 +56,6 @@ session_start();
 					</td>
 					<td id="type<?php echo $product['productID']?>">
 						<?php echo $product['productCode'] ?>
-					</td>
-					<td id="price<?php echo $product['productID']?>">
-						<?php echo $product['listPrice'] ?>
-					</td>
-					<td id="img<?php echo $product['productID']?>"><?php echo $product['imagePath'] ?>
 					</td>
 					<td id="buttons<?php echo $product['productID']?>">
 						<button id="save<?php echo $product['productID']?>"

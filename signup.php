@@ -128,7 +128,7 @@ session_start();
         <img src="images/pexels-richard-solano-5796567.jpg" alt="">
         <div class="homepage-content-container">
         <div id="box">
-        <form method="post">
+        <form method="post" action="verification.php">
             <b><div style="font-size: 20px; margin-right: 10px; padding-bottom: 10px; color: black">Account Registration</div></b>
             <hr style="margin: 8px;">
             <?php if ($validInfoNeeded == 1) { ?>
