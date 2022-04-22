@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2022 at 10:30 PM
+-- Generation Time: Apr 22, 2022 at 04:53 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -36,7 +36,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`productID`) VALUES
-(5),
+(23),
 (18);
 
 -- --------------------------------------------------------
@@ -57,21 +57,6 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
 (1, 'featured'),
 (2, 'marketplace');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
-  `orderNumber` int(11) NOT NULL,
-  `user_name` varchar(100) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `in-store` int(11) NOT NULL,
-  `fulfilled` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -99,12 +84,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`, `author`, `ISBN`, `listPrice`, `stock`, `genre`, `isBestSeller`, `imagePath`, `inCart`) VALUES
-(1, 2, 'ebook', 'Life Flight', 'Lynette Eason', '9780800737337', '12.75', 0, 'Romance', 0, 'images/lifeflightebook.jpeg', 0),
-(2, 2, 'ebook', 'How To Stop Time', 'Matt Haig', '9780525522898', '10.99', 2000, 'Romance', 0, 'images/howtostoptimeebook.jpeg', 0),
-(3, 2, 'book', 'Freezing Order', 'Bill Browder', '9781982153281', '22.99', 1, 'Nonfiction', 0, 'images/freezingorderbook.jpeg', 0),
+(1, 2, 'ebook', 'Life Flight', 'Lynette Eason', '9780800737337', '12.75', 10, 'Romance', 1, 'images/lifeflightebook.jpeg', 0),
+(2, 2, 'ebook', 'How To Stop Time', 'Matt Haig', '9780525522898', '10.99', 2000, 'Romance', 1, 'images/howtostoptimeebook.jpeg', 0),
+(3, 2, 'book', 'Freezing Order', 'Bill Browder', '9781982153281', '22.99', 1, 'Nonfiction', 1, 'images/freezingorderbook.jpeg', 0),
 (4, 2, 'ebook', 'Hello Molly', 'Molly Shannon', '9780783545042', '27.99', 1, 'Nonfiction', 0, 'images/hellomollybook.jpeg', 0),
-(5, 2, 'book', 'Against All Odds', 'Alex Kershaw', '9780595387519', '14.99', 9, 'Nonfiction', 0, 'images/againstalloddsbook.jpeg', 1),
-(6, 2, 'book', 'Portrait Of A Thief', 'Grace D. Li', '9780593184738', '19.99', 2000, 'Nonfiction', 0, 'images/portraitofathiefbook.jpeg', 0),
+(5, 2, 'book', 'Against All Odds', 'Alex Kershaw', '9780595387519', '14.99', 10, 'Nonfiction', 1, 'images/againstalloddsbook.jpeg', 0),
+(6, 2, 'book', 'Portrait Of A Thief', 'Grace D. Li', '9780593184738', '19.99', 2000, 'Nonfiction', 1, 'images/portraitofathiefbook.jpeg', 0),
 (7, 2, 'book', 'Black Ops', 'Ric Prado', '9780744012736', '15.99', 1, 'Nonfiction', 0, 'images/blackopsbook.jpeg', 0),
 (8, 2, 'book', 'Life of Pi', 'Yann Martel', '9780770430078', '34.95', 1, 'Fiction', 1, 'images/lifeofpi.jpeg', 0),
 (9, 2, 'book', 'Bimboland', 'Erin Taylor', '9781576879917', '14.95', 50, 'Poetry', 0, 'images/bimboland.jpeg', 0),
@@ -120,9 +105,29 @@ INSERT INTO `products` (`productID`, `categoryID`, `productCode`, `productName`,
 (19, 2, 'book', 'The Harbor', 'Katrine Engberg', '9781797136318', '12.99', 100, 'Mystery', 0, 'images/theharbor.jpeg', 0),
 (20, 2, 'book', 'The Family Plot', 'Megan Collins', '9781432893293', '22.99', 150, 'Mystery', 1, 'images/thefamilyplot.jpeg', 0),
 (21, 2, 'book', 'Dream Work', 'Mary Oliver', '9780871130693', '10.99', 150, 'Poetry', 0, 'images/dreamwork.jpeg', 0),
-(22, 2, 'book', 'Sandy Hook', 'Elizabeth Williamson', '9781524746575', '15.99', 75, 'Nonfiction', 1, 'images/sandyhook.jpeg', 0),
-(23, 2, 'book', 'Buy Black', 'Aria S. Halliday', '9780252044274', '24.95', 100, 'Nonfiction', 0, 'images/buyblack.jpeg', 0),
-(24, 2, 'book', '37 Words', 'Sherry Boschert', '9781620975831', '20.99', 15, 'History', 0, 'images/37words.jpeg', 0);
+(22, 2, 'book', 'Sandy Hook', 'Elizabeth Williamson', '9781524746575', '15.99', 75, 'Nonfiction', 0, 'images/sandyhook.jpeg', 0),
+(23, 2, 'book', 'Buy Black', 'Aria S. Halliday', '9780252044274', '24.95', 99, 'Nonfiction', 1, 'images/buyblack.jpeg', 1),
+(24, 2, 'book', '37 Words', 'Sherry Boschert', '9781620975831', '20.99', 15, 'History', 1, 'images/37words.jpeg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promos`
+--
+
+CREATE TABLE `promos` (
+  `promoID` int(11) NOT NULL,
+  `promocode` varchar(5) NOT NULL,
+  `promopercent` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `promos`
+--
+
+INSERT INTO `promos` (`promoID`, `promocode`, `promopercent`) VALUES
+(1, 'ABCDE', 20),
+(2, 'ASDFG', 25);
 
 -- --------------------------------------------------------
 
@@ -158,21 +163,15 @@ INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `email`, `address
 (4, 93033303477282698, '', '', '', '', '', '', '', 'nwadike1234', '1234', '0000-00-00', '2022-03-25 17:55:13', 0),
 (5, 61939839636, '', '', '', '', '', '', '', 'user1234', '1234', '0000-00-00', '2022-03-25 14:31:10', 0),
 (6, 244633750118402467, '', '', '', '', '', '', '', 'testing123456', '12345', '0000-00-00', '2022-03-25 18:00:41', 0),
-(7, 78385, '', '', '', '', '', '', '', 'test1234', '1234', '0000-00-00', '2022-03-25 18:01:25', 0),
+(7, 78385, '', '', '', '', '', '', '', 'test12345', '1234', '0000-00-00', '2022-04-19 19:51:37', 0),
 (8, 19424, '', '', '', '', '', '', '', 'testing12345', '12345', '0000-00-00', '2022-04-12 19:05:43', 0),
 (9, 3334561613138, '', '', '', '', '', '', '', 'vendor1', 'vendor1', '0000-00-00', '2022-04-13 19:06:41', 2),
 (14, 22066799727, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'nwadike12345', 'testing', '2001-11-01', '2022-04-14 20:22:00', 0),
-(15, 824336, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'dariusnwadike1', 'testing', '2001-11-01', '2022-04-15 18:35:26', 0);
+(15, 824336, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'dariusnwadike1', 'testing', '2001-11-01', '2022-04-18 16:30:34', 0);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -189,12 +188,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
