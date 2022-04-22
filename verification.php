@@ -1,8 +1,8 @@
 <?php 
 // get email from _POST and store to var
 // 
-$email = trim($_POST['email']);
-$name = $_POST['first_name'];
+$email = trim($_GET['email']);
+$name = trim($_GET['name']);
 $code = rand(1000,9999);
 $body = "Hello $name. Your verification code is $code";
 mail($email,"Registration Confirmation", $body);
@@ -11,9 +11,9 @@ mail($email,"Registration Confirmation", $body);
 ?>
 <head>
 	<link rel="stylesheet" href="css/account.css">
-	<title>Confirm registration</title>
+	<title>Confirm</title>
 	<center>
-		<h1>Please enter verification code to complete registration</h1>
+		<h2>Check your email for verification code</h2>
 	</center>
 </head>
 <body>

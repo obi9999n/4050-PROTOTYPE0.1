@@ -35,7 +35,7 @@ session_start();
                 mysqli_query($con, $query);
 
                 // send to login page
-                header("Location: login.php");
+                echo "<script type='text/javascript'>document.location.href='verification.php?name=$first_name&email=$email';</script>";
                 die;
 
             } else {
@@ -128,7 +128,7 @@ session_start();
         <img src="images/pexels-richard-solano-5796567.jpg" alt="">
         <div class="homepage-content-container">
         <div id="box">
-        <form method="post" action="verification.php">
+        <form method="post">
             <b><div style="font-size: 20px; margin-right: 10px; padding-bottom: 10px; color: black">Account Registration</div></b>
             <hr style="margin: 8px;">
             <?php if ($validInfoNeeded == 1) { ?>
