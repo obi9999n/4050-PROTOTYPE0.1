@@ -44,7 +44,7 @@
             <!----logo---->
             <div class="logo-plus-title">
                 <a href="home.php" class="logo">
-                    <img src="images/atllogo2.png" alt="logo image">
+                    <img src="images/atllogo3.png" alt="logo image">
                 </a>
             </div>
             <!--menu----->

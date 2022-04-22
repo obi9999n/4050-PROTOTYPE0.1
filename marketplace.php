@@ -151,7 +151,6 @@ session_start();
                                                             <?php } ?>
                                                         <?php } else { ?>
                                                             <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
-                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
                                                                 <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
                                                             <?php } else { ?>
                                                                 <button class="featured-out-of-stock">OUT OF STOCK</button>
