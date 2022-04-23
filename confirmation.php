@@ -25,6 +25,12 @@ $address = $_GET['address'];
 
 $insertQuery = "INSERT INTO orders(orderNumber, user_name, total, in_store, fulfilled, shipping, address, datePlaced) VALUES ($orderNum, '$user', 9.99, 0, 0, 0, '$address', CURRENT_TIMESTAMP)";
 $insert = mysqli_query($con, $insertQuery);	
+
+
+// $body = "Hello $name. Your verification code is $code";
+// mail($email,"Order Confirmation", $body);
+
+
 // echo mysqli_error($con);
 		
 		// } else if (!empty($_GET[$key])){
