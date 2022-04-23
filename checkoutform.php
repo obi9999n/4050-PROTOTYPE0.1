@@ -10,7 +10,7 @@
   $products = mysqli_query($con, $queryProducts);
   $result_count = mysqli_num_rows($products);
   $queryAllProducts = 'SELECT * FROM products, cart WHERE products.productID = cart.productID ORDER BY products.productID';
-  $sum = 0;
+  $sum = 3;
   $queryPromos = 'SELECT * FROM promos WHERE 1';
   $promos = mysqli_query($con, $queryPromos);
   $products1 = mysqli_query($con, $queryAllProducts);
@@ -89,9 +89,7 @@
                 <i class="gg-close"></i>
             </a>
         </div>
-    </div>
-
-
+    </div
     <!--lightslider------->
     <ul id="autoWidth" class="cs-hidden">
         <li class="item-a"></li>
@@ -122,9 +120,14 @@
   <div class="col-75">
     <div class="container">
       <form action="confirmation.php" >
-      <!-- <form action="confirmation.php?orderNum=<?php echo $orderNum ?>" > -->
+            <?php foreach ($products1 as $product) : ?>        
+        <?php $sum+=$product['listPrice']; ?>
+      <?php endforeach; ?>
+	 <!-- <form action="confirmation.php?orderNum=<?php echo $orderNum ?>" > -->
       <input type="hidden" name="orderNum" value=<?php echo $orderNum ?>>
-        <label for="reserve"> <input type="button" name="reserve" onClick="myFunction()" value="Pick-up Order in Store (Pay with Cash)" class="btn">  </label>
+      <input type="hidden" name="username" value=<?php echo $user_data['user_name'] ?>>
+      <input type="hidden" name="total" value=<?php echo $sum ?>>
+  <label for="reserve"> <input type="button" name="reserve" onClick="myFunction()" value="Pick-up Order in Store (Pay with Cash)" class="btn">  </label>
         <div id="myDIV">
           <div class="row">
             
@@ -182,11 +185,11 @@
           
         </div>
         <label>
-          
+
           <input type="checkbox" checked="checked" name="sameadr"> Billing Address same as Shipping Address
         </label>
         <input type="submit" value="Continue to checkout" class="btn">
-      </form>
+</form>
     </div>
   </div>
   <div class="col-25">
@@ -195,9 +198,7 @@
       <?php foreach ($products as $product) : ?>
         <p><a href="marketplace.php"><?php echo $product['productName']; ?></a> (Stock: <?php echo $product['stock'] ?>) <a href="addToCart2.php?productID=<?php echo $product['productID']; ?>"> + </a> <a href="removeFromCart2.php?productID=<?php echo $product['productID']; ?>"> - </a> <span class="price">$<?php echo $product['listPrice']; ?></span></p>
         <?php endforeach; ?>
-      <?php foreach ($products1 as $product) : ?>        
-        <?php $sum+=$product['listPrice']; ?>
-      <?php endforeach; ?>
+
       <hr>
       <p>Total<span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>
       <form action="checkoutform.php">
@@ -206,7 +207,8 @@
         
         <?php foreach ($promos as $promo) : ?>
           <?php if ($_REQUEST['code'] == $promo['promocode']) : ?>
-            <p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum * ((100 - $promo['promopercent'])/100);?></b></span></p>
+			<?php $sum = $sum * ((100 - $promo['promopercent'])/100)?> 
+            <p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>		  
           <?php endif;?> 
         <?php endforeach; ?>
           
