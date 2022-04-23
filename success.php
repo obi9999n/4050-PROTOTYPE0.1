@@ -6,6 +6,7 @@
 
 	$user_data = check_login($con);
     $type = check_if_vendor_and_admin($con);
+    $orderNum = $_GET['orderNum'];
     // from checkout page, send orderNumber as url param to this page
     // retrieve from _GET array
     
@@ -17,8 +18,7 @@
 	<title>Successfully placed order</title>
 	<link rel="stylesheet" href="css/account.css">
 	<center>
-		<!-- <h1>Your order <?php echo $oNumber ?> has been placed </h1> -->
-		<h1>Your order #12345 has been placed </h1>
+		<h1>Your order #<?php echo $orderNum ?> has been placed </h1>
 		<p> <a href="home.php">Click here to return to home.</a></p>
 	</center>
 </head>
