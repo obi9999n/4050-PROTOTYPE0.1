@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2022 at 08:08 PM
+-- Generation Time: Apr 23, 2022 at 10:18 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -66,10 +66,10 @@ INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `orderNumber` smallint(8) NOT NULL,
+  `orderNumber` mediumint(11) NOT NULL,
   `user_name` varchar(100) NOT NULL,
   `total` decimal(10,2) NOT NULL,
-  `in-store` int(11) NOT NULL,
+  `in_store` int(11) NOT NULL,
   `fulfilled` int(11) NOT NULL DEFAULT 0,
   `shipping` int(11) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `orderNumber`, `user_name`, `total`, `in-store`, `fulfilled`, `shipping`, `address`, `datePlaced`) VALUES
+INSERT INTO `orders` (`id`, `orderNumber`, `user_name`, `total`, `in_store`, `fulfilled`, `shipping`, `address`, `datePlaced`) VALUES
 (1, 12345, 'user', '25.00', 0, 0, 1, '123 Main St, Athens, GA 30606', '2022-04-22');
 
 -- --------------------------------------------------------
