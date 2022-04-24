@@ -5,7 +5,7 @@
 	include("functions.php");
 
 	$user_data = check_login($con);
-    $type = check_if_vendor_and_admin($con);
+    $type = check_if_admin($con);
 	$id = $_GET['id'];
     $queryID = "SELECT productID FROM products WHERE categoryID = 2 AND productID = '$id'";
 	$queryTitle = "SELECT productName FROM products WHERE categoryID = 2 AND productID = '$id'";
@@ -20,7 +20,7 @@
 <head>
 	<title>Update item</title>
 	<link rel="stylesheet" href="css/account.css">
-	<button onclick="location.href='manageInventory.php'" style="margin: 15px;">Go back</button>
+	<button onclick="location.href='admin.php'" style="margin: 15px;">Go back</button>
 	<center>
 		<h1>Updating <?php echo $title ?></h1>
 	</center>

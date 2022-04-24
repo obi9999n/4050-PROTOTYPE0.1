@@ -12,7 +12,6 @@ session_start();
         //something was posted
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
-		$check = $_POST['check'];
 
         if(!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
             // read from database
@@ -25,15 +24,11 @@ session_start();
 			if($result) {
 				if($result && mysqli_num_rows($result) > 0) {
 					$user_data = mysqli_fetch_assoc($result);
-					if($user_data['password'] == $password) {
-						$_SESSION['user_id'] = $user_data['user_id'];
-						if ($check=='1') {
-							setcookie($user_data['user_name'], TRUE, time() + 86400);
-							$check = '0';
-						}
-						header("Location: home.php");
-            			die;
-					}
+                    $user_id = $user_data['user_id'];
+                    $changePassword = "update users set password = '$password' where user_id = '$user_id'";
+                    mysqli_query($con, $changePassword);
+                    header("Location: login.php");
+            		die;
 				}
 			}
 			$wrongUserOrPass = 1;
@@ -47,7 +42,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Forgot Password</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<link rel="shortcut icon" href="images/atllogo3.png">
@@ -123,7 +118,7 @@ session_start();
         <div class="homepage-content-container">
 		<div id="box">
         <form method="post">
-            <b><div style="font-size: 20px; margin: 5px; color: black">Login</div></b>
+            <b><div style="font-size: 20px; margin: 5px; color: black">Forgot Password</div></b>
             <hr>
 			<?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
@@ -131,26 +126,21 @@ session_start();
 			<?php } ?>
 			<?php if ($wrongUserOrPass == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
-				<p>Wrong username or password.</p>
+				<p>Wrong username.</p>
 			<?php } ?>
             <div class="login-section">
-                <label>Username</label>
+                <label>Enter your username</label>
                 <input id="text" type="text" name="user_name"><br>
             </div>
 			
             <div class="login-section">
-                <label>Password</label>
+                <label>Enter new password</label>
                 <input id="text" type="password" name="password"><br>
             </div>
 			
-            <div class="login-section">
-                <label>Remember me</label>
-                <input type="checkbox" value="1" name="check"><br><br>
-            </div>
 			<div class="login-section">
-                <input style="width: 260px;" id="button" type="submit" value="Login"><br><br>
-                <center><a href="signup.php">Click to Signup!</a><br></center>
-                <center><a href="forgotPassword.php">Forgot Password?</a><br></center>
+                <input style="width: 260px;" id="button" type="submit" value="Change password"><br><br>
+                <center><a href="login.php">Click to Login!</a><br></center>
             </div>
             
         </form>

@@ -40,6 +40,18 @@ session_start();
                 $emptyPassword = 1;
             }
         }
+        if ($_POST['submitAddress']) {
+            $address = $_POST['address'];
+            if (!empty($address)) {
+                $emptyAddress = 0;
+                $query = "update users set address = '$address' where user_id = '$user_id'";
+                mysqli_query($con, $query);
+                header("Location: account.php");
+                die;
+            } else {
+                $emptyAddress = 1;
+            }
+        }
     }
 
 ?>
@@ -93,7 +105,7 @@ session_start();
                     <label style="align-self: start;">New Address:</label>
                     <input style="width: 275px;" id="text" type="password" name="address">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitAddress" value="Submit"><br><br>
-                    <?php if ($emptyPassword == 1) { ?>
+                    <?php if ($emptyAddress == 1) { ?>
                         <div class="alert">
                             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                             Error: Field is empty. Please try again.
@@ -128,10 +140,12 @@ session_start();
                 </div>
                 <div class="account-section">
                     <hr>
+                    <?php $user_type = $user_data['user_type']; ?>
                     <button class="featured-out-of-stock"><a href="home.php">Back to home!</a><br></button>
                     <button class="featured-out-of-stock"><a href="logout.php">Click here to logout!</a><br></button>
-                    <button class="featured-out-of-stock"><a href="deleteConfirmation.php">Delete account</a><br></button>
-                    <?php $user_type = $user_data['user_type']; ?>
+                    <?php if ($user_type == 0) { ?>
+                        <button class="featured-out-of-stock"><a href="deleteConfirmation.php">Delete account</a><br></button>
+                    <?php } ?>
                     <?php if ($user_type == 1) { ?>
                         <button class="featured-out-of-stock"><a href="admin.php">Admin Controls</a><br></button>
                     <?php } ?>
