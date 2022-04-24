@@ -12,6 +12,20 @@ $total = floatval($_GET['total']);
 $address = $_GET['address'];
 $name = $_GET['firstname'];
 $email = $_GET['email'];
+$deadline=Date('m/d/y', strtotime('+5 days'));
+
+$noBlanks = true;
+foreach($_GET as $key => $value) {
+	if ($value != 0 && empty($value)){
+		$noBlanks = false;
+		break;
+	}
+}	
+if ($noBlanks == false) {
+		echo '<script>alert("No blank input allowed")</script>';
+		echo "<script type='text/javascript'>document.location.href='checkoutForm.php';</script>";
+}
+
 // if (isset($orderNum) && isset($user) && isset($total) && isset($address)) {
 // 	echo "all are set";
 // } else {
@@ -29,7 +43,7 @@ $insertQuery = "INSERT INTO orders(orderNumber, user_name, total, in_store, fulf
 $insert = mysqli_query($con, $insertQuery);	
 
 
-$body = "Hello $name. Thank you for placing an order with Atlanta Bookstore. Your order number is #$orderNum";
+$body = "Hello $name. Thank you for placing an order with Atlanta Bookstore. Your order number is #$orderNum.\rYour total is $$total.\rIf you chose in-store pickup, you must pick up your ordeer by $deadline.";
 mail($email,"Order Confirmation", $body);
 
 
