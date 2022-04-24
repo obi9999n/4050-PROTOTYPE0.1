@@ -5,6 +5,7 @@ session_start();
 	include("functions.php");
 
     $user_data = check_login($con);
+    $type = check_if_vendor_and_admin($con);
 //   $orders = query on orders table and return number of rows where dateplaced is today
 //	$totalSales = query on orders table and return sum of all totals where date placed is today
 ?>

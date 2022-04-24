@@ -20,7 +20,6 @@ session_start();
 </head>
 
 <body>
-<button onclick="location.href='account.php'" style="margin: 15px;">Return to settings</button>
 	<center>
 		<p>Welcome vendor!</p><br>
 		<div class='container' style='display:flex'>
@@ -37,6 +36,7 @@ session_start();
 				<a href="manageOrders.php"> <b>View/Manage orders</b></a>
 			</div>
 		</div>
+		<a href="account.php">Return to settings</a>
 	</center>
 
 </body>
