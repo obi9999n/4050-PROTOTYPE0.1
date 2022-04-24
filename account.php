@@ -59,6 +59,7 @@ session_start();
 <!doctype HTML>
 <html lang="english">
     <head>
+        <title>Account Settings</title>
         <link rel="stylesheet" href="css/account.css">
         <center><h1 style="margin-bottom: 0px;">Account Settings</h1></center>
     </head>
@@ -82,7 +83,7 @@ session_start();
                     <?php if ($validUsername == 1) { ?>
                         <div class="alert">
                             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                            Error: Username is already taken. Please try again.                        
+                            Error: Username is not available. Please try another username.                        
                         </div>
                     <?php } ?> 
                     <hr>

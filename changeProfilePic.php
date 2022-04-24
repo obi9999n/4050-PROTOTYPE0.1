@@ -11,6 +11,7 @@ session_start();
 <!doctype HTML>
 <html lang="english">
     <head>
+        <title>Profile Picture</title>
         <link rel="stylesheet" href="css/account.css">
         <center><h1>Change Profile Picture</h1></center>
     </head>
