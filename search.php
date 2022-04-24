@@ -34,7 +34,7 @@ session_start();
         } 
         
         if ($result_count == 0) {
-            $queryAuthor = "SELECT DISTINCT * FROM products WHERE UPPER(author) LIKE UPPER('%$s_query%')";
+            $queryAuthor = "SELECT DISTINCT * FROM products WHERE UPPER(author) LIKE UPPER('$s_query')";
             $products = mysqli_query($con, $queryAuthor);
             $result_count = mysqli_num_rows($products);
         }

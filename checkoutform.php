@@ -42,14 +42,14 @@ foreach ($promos as $promo){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/CheckoutForm.css">
     <link rel="shortcut icon" href="images/atllogo.png">
-    <link rel="stylesheet" href="style/normalize.css">
+    <!-- <link rel="stylesheet" href="style/normalize.css"> -->
     <!-----for icons------>
     <link href='https://css.gg/css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg/icons/all.css' rel='stylesheet'>
     <link href='https://cdn.jsdelivr.net/npm/css.gg/icons/all.css' rel='stylesheet'>
 </head>
 <body>
-<div class="page-title-container">
+    <div class="page-title-container">
         <h2 class="page-title">ATLANTA BOOKSTORE</h2>
     </div>
     <!--navigation---------->
@@ -105,7 +105,7 @@ foreach ($promos as $promo){
                 <i class="gg-close"></i>
             </a>
         </div>
-    </div
+    </div>
     <!--lightslider----->
     <ul id="autoWidth" class="cs-hidden">
         <li class="item-a"></li>
@@ -161,6 +161,7 @@ foreach ($promos as $promo){
               <input type="text" id="adr" name="address" placeholder="45 Baxter Street">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="Athens">
+            </div>
             <div class="row">
               <div class="col-50">
                 <label for="state">State</label>
