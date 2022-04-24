@@ -10,13 +10,26 @@
   $products = mysqli_query($con, $queryProducts);
   $result_count = mysqli_num_rows($products);
   $queryAllProducts = 'SELECT * FROM products, cart WHERE products.productID = cart.productID ORDER BY products.productID';
-  $sum = 3;
+  $sum = 0;
   $queryPromos = 'SELECT * FROM promos WHERE 1';
   $promos = mysqli_query($con, $queryPromos);
   $products1 = mysqli_query($con, $queryAllProducts);
   $result_count1 = mysqli_num_rows($products1);
   $orderNum = rand(10000,99999);
-?>
+  $hasPromo = false;
+foreach ($products1 as $product){
+	     $sum+=$product['listPrice'];
+
+} 
+foreach ($promos as $promo){
+	if ($_REQUEST['code'] == $promo['promocode']){
+	$sum = $sum * ((100 - $promo['promopercent'])/100);
+	$hasPromo = true;
+	}
+}
+	$sum = number_format($sum, 2, '.', '');
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="english">
@@ -43,7 +56,7 @@
             <!----logo---->
             <div class="logo-plus-title">
                 <a href="home.php" class="logo">
-                    <img src="images/atllogo2.png" alt="logo image">
+                    <img src="images/atllogo3.png" alt="logo image">
                 </a>
             </div>
             <!--menu----->
@@ -120,14 +133,12 @@
   <div class="col-75">
     <div class="container">
       <form action="confirmation.php" >
-            <?php foreach ($products1 as $product) : ?>        
-        <?php $sum+=$product['listPrice']; ?>
-      <?php endforeach; ?>
+
 	 <!-- <form action="confirmation.php?orderNum=<?php echo $orderNum ?>" > -->
-      <input type="hidden" name="orderNum" value=<?php echo $orderNum ?>>
-      <input type="hidden" name="username" value=<?php echo $user_data['user_name'] ?>>
-      <input type="hidden" name="total" value=<?php echo $sum ?>>
-  <label for="reserve"> <input type="button" name="reserve" onClick="myFunction()" value="Pick-up Order in Store (Pay with Cash)" class="btn">  </label>
+      <input type="hidden" name="orderNum" value=<?php echo $orderNum; ?>>
+      <input type="hidden" name="username" value=<?php echo $user_data['user_name']; ?>>
+      <input type="hidden" name="total" value=<?php echo $sum; ?>>
+	<button name="reserve" onClick="reserveFunc()" class="btn">Pick-up Order in Store (Pay with Cash)</button>
         <div id="myDIV">
           <div class="row">
             
@@ -142,7 +153,6 @@
               <input type="text" id="adr" name="address" placeholder="45 Baxter Street">
               <label for="city"><i class="fa fa-institution"></i> City</label>
               <input type="text" id="city" name="city" placeholder="Athens">
-
             <div class="row">
               <div class="col-50">
                 <label for="state">State</label>
@@ -164,7 +174,7 @@
               <i class="fa fa-cc-mastercard" style="color:red;"></i>
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
-            <label for="reserve"> <input type="checkbox" name="reserve"> Cash (Pick-up Order in Store) </label>
+            <!-- <label for="reserve"> <input type="checkbox" name="reserve"> Cash (Pick-up Order in Store) </label> -->
             <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="Steve Jobs">
             <label for="ccnum">Credit card number</label>
@@ -205,19 +215,13 @@
         <?php endforeach; ?>
 
       <hr>
-      <p>Total<span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>
+	 <p>Total<span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>
       <form action="checkoutform.php">
         <label for="promo">Promo Code<input type="text" id ="code" name="code"></label>
-        <input type="submit" value="Add Promo" class="btn">
-        
-        <?php foreach ($promos as $promo) : ?>
-          <?php if ($_REQUEST['code'] == $promo['promocode']) : ?>
-			<?php $sum = $sum * ((100 - $promo['promopercent'])/100)?> 
-            <p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>		  
-          <?php endif;?> 
-        <?php endforeach; ?>
-          
-        
+        <input type="submit" value="Add Promo" class="btn">        
+		<?php if ($hasPromo == true):?>
+			<p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>		  
+		<?php endif ?>
       </form>
     </div>
   </div>

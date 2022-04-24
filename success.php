@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="css/account.css">
 	<center>
 		<h1>Your order #<?php echo $orderNum ?> has been placed </h1>
-		<p>Your total: $<?php echo $total ?>  </p>
+		<p>Your total: $<?php echo $total ?>  </p>		
 		<p> <a href="home.php">Click here to return to home.</a></p>
 	</center>
 </head>
