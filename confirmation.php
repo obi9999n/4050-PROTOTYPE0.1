@@ -10,6 +10,8 @@ $user = $_GET['username'];
 $total = floatval($_GET['total']);
 // $shippingType = intval($_GET['shipping']);
 $address = $_GET['address'];
+$name = $_GET['firstname'];
+$email = $_GET['email'];
 // if (isset($orderNum) && isset($user) && isset($total) && isset($address)) {
 // 	echo "all are set";
 // } else {
@@ -27,8 +29,8 @@ $insertQuery = "INSERT INTO orders(orderNumber, user_name, total, in_store, fulf
 $insert = mysqli_query($con, $insertQuery);	
 
 
-// $body = "Hello $name. Your verification code is $code";
-// mail($email,"Order Confirmation", $body);
+$body = "Hello $name. Thank you for placing an order with Atlanta Bookstore. Your order number is #$orderNum";
+mail($email,"Order Confirmation", $body);
 
 
 // echo mysqli_error($con);
