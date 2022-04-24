@@ -258,6 +258,13 @@ nav {
   margin-bottom: 5px;
 }
 
+.modal-right {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  padding-left: 40px;
+}
+
 .featured-out-of-stock {
   width: 360px;
   height: 45px;
