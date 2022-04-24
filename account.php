@@ -6,6 +6,11 @@ session_start();
 
     $user_data = check_login($con);
 
+    $emptyUser = 0;
+    $validUsername = 0;
+    $emptyPassword = 0;
+    $emptyAddress = 0;
+
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         $user_id = $user_data['user_id'];
         if ($_POST['submitUsername']) {
