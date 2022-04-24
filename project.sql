@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2022 at 10:40 PM
+-- Generation Time: Apr 25, 2022 at 01:48 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -72,7 +72,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `orderNumber`, `user_name`, `total`, `in_store`, `fulfilled`, `address`, `datePlaced`) VALUES
-(1, 12345, 'user', '25.00', 0, 0, '123 Main St, Athens, GA 30606', '2022-04-22');
+(1, 12345, 'user', '25.00', 0, 0, '123 Main St, Athens, GA 30606', '2022-04-22'),
+(2, 82214, 'admin', '12.79', 0, 0, '', '2022-04-24');
 
 -- --------------------------------------------------------
 
@@ -168,30 +169,32 @@ CREATE TABLE `users` (
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_type` int(11) NOT NULL,
   `profile_pic` text NOT NULL,
-  `verified` int(11) NOT NULL DEFAULT 0
+  `verified` int(11) NOT NULL DEFAULT 0,
+  `newsletter` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `email`, `address`, `city`, `state`, `zipCode`, `user_name`, `password`, `birthday`, `date`, `user_type`, `profile_pic`, `verified`) VALUES
-(1, 62607, '', '', '', '', '', '', '', 'testing1234', 'testing', '0000-00-00', '2022-04-24 16:29:36', 0, 'images/default.jpeg', 0),
-(2, 716324, '', '', '', '', '', '', '', 'test', '1234', '0000-00-00', '2022-04-24 16:29:37', 0, 'images/default.jpeg', 0),
-(3, 868857, '', '', '', '', '', '', '', 'admin', '12345', '0000-00-00', '2022-04-24 16:31:37', 1, 'images/default.jpeg', 0),
-(4, 93033303477282698, '', '', '', '', '', '', '', 'nwadike1234', '1234', '0000-00-00', '2022-04-24 16:29:38', 0, 'images/default.jpeg', 0),
-(5, 61939839636, '', '', '', '', '', '', '', 'user1234', '1234', '0000-00-00', '2022-04-24 16:29:39', 0, 'images/default.jpeg', 0),
-(6, 244633750118402467, '', '', '', '', '', '', '', 'testing123456', '12345', '0000-00-00', '2022-04-24 16:29:40', 0, 'images/default.jpeg', 0),
-(7, 78385, '', '', '', '', '', '', '', 'test12345', '1234', '0000-00-00', '2022-04-24 16:29:41', 0, 'images/default.jpeg', 0),
-(8, 19424, '', '', '', '', '', '', '', 'testing12345', '12345', '0000-00-00', '2022-04-24 16:29:41', 0, 'images/default.jpeg', 0),
-(9, 3334561613138, '', '', '', '', '', '', '', 'vendor1', 'vendor1', '0000-00-00', '2022-04-24 16:29:43', 2, 'images/default.jpeg', 0),
-(14, 22066799727, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'nwadike12345', 'testing', '2001-11-01', '2022-04-24 16:29:44', 0, 'images/default.jpeg', 0),
-(15, 824336, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'dariusnwadike1', 'testing', '2001-11-01', '2022-04-24 16:29:45', 0, 'images/default.jpeg', 0),
-(16, 2863214414, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'dariusnwadike1234', '1234', '2022-04-22', '2022-04-24 16:29:46', 0, 'images/default.jpeg', 0),
-(17, 670322749, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'darius12345', '12345', '2022-04-22', '2022-04-24 16:29:47', 0, 'images/default.jpeg', 0),
-(18, 81198163917613, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'darius2', '2', '2022-04-22', '2022-04-24 16:29:48', 0, 'images/default.jpeg', 0),
-(19, 90133, 'Darius', 'Nwadike', 'larmensah@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'darius3', '3', '2022-04-22', '2022-04-24 16:29:50', 0, 'images/default.jpeg', 0),
-(20, 2810035898912106, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '3056 Lawson Drive Southwest', 'Marietta', 'GA', '30064', 'darius4', '4', '2022-04-24', '2022-04-24 16:34:26', 0, 'images/default.jpeg', 0);
+INSERT INTO `users` (`id`, `user_id`, `firstName`, `lastName`, `email`, `address`, `city`, `state`, `zipCode`, `user_name`, `password`, `birthday`, `date`, `user_type`, `profile_pic`, `verified`, `newsletter`) VALUES
+(1, 62607, '', '', '', '', '', '', '', 'testing1234', 'testing', '0000-00-00', '2022-04-24 16:29:36', 0, 'images/default.jpeg', 0, 0),
+(2, 716324, '', '', '', '', '', '', '', 'test', '1234', '0000-00-00', '2022-04-24 16:29:37', 0, 'images/default.jpeg', 0, 0),
+(3, 868857, '', '', '', '', '', '', '', 'admin', '12345', '0000-00-00', '2022-04-24 22:00:59', 1, 'images/default.jpeg', 0, 0),
+(4, 93033303477282698, '', '', '', '', '', '', '', 'nwadike1234', '1234', '0000-00-00', '2022-04-24 16:29:38', 0, 'images/default.jpeg', 0, 0),
+(5, 61939839636, '', '', '', '', '', '', '', 'user1234', '1234', '0000-00-00', '2022-04-24 16:29:39', 0, 'images/default.jpeg', 0, 0),
+(6, 244633750118402467, '', '', '', '', '', '', '', 'testing123456', '12345', '0000-00-00', '2022-04-24 16:29:40', 0, 'images/default.jpeg', 0, 0),
+(7, 78385, '', '', '', '', '', '', '', 'test12345', '1234', '0000-00-00', '2022-04-24 16:29:41', 0, 'images/default.jpeg', 0, 0),
+(8, 19424, '', '', '', '', '', '', '', 'testing12345', '12345', '0000-00-00', '2022-04-24 16:29:41', 0, 'images/default.jpeg', 0, 0),
+(9, 3334561613138, '', '', '', '', '', '', '', 'vendor1', 'vendor1', '0000-00-00', '2022-04-24 16:29:43', 2, 'images/default.jpeg', 0, 0),
+(14, 22066799727, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'nwadike12345', 'testing', '2001-11-01', '2022-04-24 23:41:32', 0, 'images/default.jpeg', 0, 0),
+(15, 824336, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'dariusnwadike1', 'testing', '2001-11-01', '2022-04-24 23:41:34', 0, 'images/default.jpeg', 0, 0),
+(16, 2863214414, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'dariusnwadike1234', '1234', '2022-04-22', '2022-04-24 23:41:38', 0, 'images/default.jpeg', 0, 0),
+(17, 670322749, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'darius12345', '12345', '2022-04-22', '2022-04-24 23:41:41', 0, 'images/default.jpeg', 0, 0),
+(18, 81198163917613, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'darius2', '2', '2022-04-22', '2022-04-24 23:41:45', 0, 'images/default.jpeg', 0, 0),
+(19, 90133, 'Darius', 'Nwadike', 'larmensah@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'darius3', '3', '2022-04-22', '2022-04-24 23:41:48', 0, 'images/default.jpeg', 0, 1),
+(20, 2810035898912106, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'darius4', '4', '2022-04-24', '2022-04-24 23:41:51', 0, 'images/default.jpeg', 0, 0),
+(21, 39931625235536, 'Darius', 'Nwadike', 'dariusnwadike@gmail.com', '1234 Main Street', 'City', 'GA', '30060', 'dariusnwadike999', '999', '2022-04-24', '2022-04-24 23:42:52', 0, 'images/default.jpeg', 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -223,7 +226,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -235,7 +238,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
