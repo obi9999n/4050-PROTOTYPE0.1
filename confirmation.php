@@ -15,7 +15,7 @@ $deadline=Date('m/d/y', strtotime('+5 days'));
 
 $noBlanks = true;
 foreach($_GET as $key => $value) {
-	if ($value != 0 && empty($value)){
+	if ($value != 0 && empty($key)){
 		$noBlanks = false;
 		break;
 	}
