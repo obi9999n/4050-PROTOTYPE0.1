@@ -138,8 +138,10 @@ session_start();
                                         <div class="modal-right">
                                             <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
                                         </div>
-                                        <div class="modal-right">
+                                        <div class="modal-right-button">
+                                            <!--
                                             <p>Stock: <?php echo $product['stock']; ?></p>
+                                            -->
                                             <div class="button-area">
                                                 <?php if (isset($_SESSION['user_id'])) {
                                                         if ($product['stock'] >= 1) { ?>

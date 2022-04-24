@@ -71,8 +71,7 @@ session_start();
                         </td>
                         <td id="buttons<?php echo $user['user_id']?>" class="data">
                             <button id="save<?php echo $user['user_id']?>"
-                                onclick="location.href='updateuseradmin.php?id=<?php echo $user['user_id'] ?>'">Update </button> 
-                                <button
+                                onclick="location.href='updateuseradmin.php?id=<?php echo $user['user_id'] ?>'">Update </button> <button
                                 id="delete<?php echo $user['user_id']?>">Delete</button>
                         </td>
                     </tr>

@@ -39,7 +39,7 @@
 	<link rel="stylesheet" href="css/account.css">
 	<center>
 		<h1>Successfully added new book</h1>
-		<p> <a href="admin.php">Admin Controls</a></p>
+		<p> <a href="manageInventory.php">Admin Controls</a></p>
 	</center>
 </head>
 
