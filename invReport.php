@@ -5,6 +5,7 @@
 	include("functions.php");
 
     $user_data = check_login($con);
+	$type = check_if_vendor_and_admin($con);
 	//   $orders = query on orders table and return number of rows
 	//	$totalSales = query on orders table and return sum of all totals
 	$queryProducts = 'SELECT * FROM products WHERE categoryID = 2 ORDER BY stock';
