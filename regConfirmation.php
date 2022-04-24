@@ -3,7 +3,9 @@ session_start();
 
 	include("connection.php");
 	include("functions.php");
-	$code = $_POST['code'];
+	$code = $_GET['code'];
+	$user = $_GET['username'];
+	
 //     $user_data = check_login($con);
 //   $orders = query on orders table and return number of rows where dateplaced is today
 //	$totalSales = query on orders table and return sum of all totals where date placed is today
@@ -36,13 +38,16 @@ session_start();
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
 		const validCode = urlParams.get('code');
-		const input = document.getElementById("code").value
+		const input = document.getElementById("code").value;
 		if (validCode == input) {
-			alert("Right! Registration is valid.")
-			// redirect to php that updates "verified" column in users to 1		
-			// then redirect to log in
+			alert("Correct! Redirecting to login page.");
+			<?php 
+				$queryUpdate = "UPDATE users SET verified=1 WHERE user_name = '$user'";
+				$update = mysqli_query($con, $queryUpdate);	
+			?>
+			location.assign('login.php');
 		} else {
-			alert("Wrong!")
+			alert("Wrong code! Try again.");
 		}
 	}
 
