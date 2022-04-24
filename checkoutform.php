@@ -18,7 +18,6 @@
   $result_count1 = mysqli_num_rows($products1);
   $orderNum = rand(10000,99999);
   $hasPromo = false;
-  $_REQUEST['code'] = 0;
 foreach ($products1 as $product){
 	     $sum+=$product['listPrice'];
 
@@ -30,7 +29,7 @@ foreach ($promos as $promo){
 	}
 }
 	$sum = number_format($sum, 2, '.', '');
-  $promosum = number_format($promosum, 2, '.', '');
+	$promosum = number_format($promosum, 2, '.', '');
 
  ?>
 
@@ -135,18 +134,15 @@ foreach ($promos as $promo){
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="confirmation.php" >
-
-	 <!-- <form action="confirmation.php?orderNum=<?php echo $orderNum ?>" > -->
+      <form action="confirmation.php" method="get">
       <input type="hidden" name="orderNum" value=<?php echo $orderNum; ?>>
       <input type="hidden" name="username" value=<?php echo $user_data['user_name']; ?>>
       <?php if ($hasPromo == true):?>
 			  <input type="hidden" name="total" value=<?php echo $promosum; ?>>		  
       <?php else: ?>
         <input type="hidden" name="total" value=<?php echo $sum; ?>>
-      <?php endif; ?>
-
-	<button name="reserve" onClick="reserveFunc()" class="btn">Pick-up Order in Store (Pay with Cash)</button>
+      <?php endif; ?>	
+	 <button name="reserve" class="btn" onclick="reserveFunc()">Pick-up Order in Store (Pay with Cash)</button>
         <div id="myDIV">
           <div class="row">
             
@@ -250,7 +246,7 @@ foreach ($promos as $promo){
         <label for="promo">Promo Code<input type="text" id ="code" name="code"></label>
         <input type="submit" value="Add Promo" class="btn">        
 		<?php if ($hasPromo == true):?>
-			<p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $promosum;?></b></span></p>		  
+			<p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>		  
 		<?php endif ?>
       </form>
     </div>
@@ -269,7 +265,13 @@ foreach ($promos as $promo){
         </div>
   </div> 
 </body>
-<script type="text/javascript">
+<script>
+	function reserveFunc() {
+		// location.assign('');
+
+		alert('You must pick up your order within 5 days.');
+	}
+
     function ShowHideDiv(check) {
         var billDiv = document.getElementById("billingDiv");
         billDiv.style.display = check.checked ? "none" : "block";
