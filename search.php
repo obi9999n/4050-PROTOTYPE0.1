@@ -44,6 +44,11 @@ session_start();
             $products = mysqli_query($con, $queryISBN);
             $result_count = mysqli_num_rows($products);
         }
+
+        if ($s_query == "") {
+            $result_count = 0;
+        }
+
     ?>
     <div class="re-search-bar">
         <!--search-input-->
@@ -63,7 +68,10 @@ session_start();
         <div style="margin-left: 45px;">
             <p> Results for search: <?php echo $s_query;?></p>
         </div>
-        <div class="featured-container-2">
+        <?php if ($result_count == 0) { ?>
+            <center><p>No results found. Please try again!</p></center>
+        <?php } else { ?>
+            <div class="featured-container-2">
             <?php foreach ($products as $product) : ?>
                 <div class="featured-item">
                     <div>
@@ -151,6 +159,7 @@ session_start();
                 </div>
             <?php endforeach; ?> 
         </div>
+        <?php }?>
     </div>
     <?php }?>
 
