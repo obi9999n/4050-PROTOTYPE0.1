@@ -120,34 +120,20 @@ session_start();
                         <div class="modal-container" id="<?php echo $product['productName']; ?>">
                             <div class="modal">
                                 <div class="modal-body">
-<<<<<<< Updated upstream
                                     <div class="modal-image-wrapper">
-=======
-                                    <div style="margin-bottom:40px;">
->>>>>>> Stashed changes
                                         <img class="modal-image" src="<?php echo $product['imagePath']; ?>" alt="red rhude T-shirt"
                                             width="300px"
                                             height="450px"
                                         >
                                     </div>
-<<<<<<< Updated upstream
                                     <div class="modal-right-container">
-=======
-                                    <div>
->>>>>>> Stashed changes
                                         <div class="modal-right">
                                             <p style="text-align:left; font-size:20pt; margin-bottom:0px; "><?php echo $product['productName']; ?></h1>
                                             <p style="color:darkgreen; text-align:left; margin-bottom:0px;">Author: <?php echo $product['author']; ?></p>
                                             <p style="text-align:left; margin-top:3px">Genre: <?php echo $product['genre']; ?></p>
-<<<<<<< Updated upstream
                                             <p style="text-align:left; margin-top:3px">Stock: <?php echo $product['stock']; ?></p>
                                         </div>
                                         <hr style="margin-top:0px; margin-left:0px; margin-right:20px; " >
-=======
-
-                                        </div>
-                                        <hr style="margin-top:0px; margin-left:40px; margin-right:20px; " >
->>>>>>> Stashed changes
 
                                         <div class="modal-right">
                                             <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
@@ -159,18 +145,10 @@ session_start();
                                                         if ($product['stock'] >= 1) { ?>
                                                             <button class="featured-out-of-stock"><a href="addToCart.php?productID=<?php echo $product['productID']; ?>">ADD TO CART</a></button>
                                                             <?php if ($product['inCart'] >= 1) { ?>
-<<<<<<< Updated upstream
                                                                 <button style="margin-left: 10px; background-color: darkred;" class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
                                                             <?php } ?>
                                                         <?php } else { ?>
                                                             <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
-=======
-                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
-                                                            <?php } ?>
-                                                        <?php } else { ?>
-                                                            <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
-                                                                <button class="featured-out-of-stock">OUT OF STOCK</button>
->>>>>>> Stashed changes
                                                                 <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
                                                             <?php } else { ?>
                                                                 <button class="featured-out-of-stock">OUT OF STOCK</button>
