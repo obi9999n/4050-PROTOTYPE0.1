@@ -48,73 +48,86 @@ session_start();
 <html lang="english">
     <head>
         <link rel="stylesheet" href="css/account.css">
-        <center><h1>Account Settings</h1></center>
+        <center><h1 style="margin-bottom: 0px;">Account Settings</h1></center>
     </head>
 
     <body>
-        <center><p>Welcome <?php echo $user_data['user_name']; ?>!<br></center>
+        <center><p style="margin-top: 0px; margin-bottom: 0px;">Welcome <?php echo $user_data['user_name']; ?>!<br></center>
         <div id="box">
-            <form method="post">
+            <form class="form1" method="post">
                 <div class="account-section">
-                    <p>Change username:</p>
-                    <label>New Username</label>
-                    <input style="width: 275px;" id="text" type="text" name="user_name"><br>
+                    <label style="align-self: start;">New Username:</label>
+                    <input style="width: 275px;" id="text" type="text" name="user_name">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitUsername" value="Submit"><br><br>
                     <?php if ($emptyUser == 1) { ?>
-                        <p>Error: Field is empty. Please try again.<p>
+                        <p></p>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Error: Field is empty. Please try again.
+                        </div>
                     <?php } ?> 
                     <?php if ($validUsername == 1) { ?>
-                        <p>Error: Username is already taken. Please try again.<p>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Error: Username is already taken. Please try again.                        
+                        </div>
                     <?php } ?> 
                     <hr>
                 </div>
                 
                 <div class="account-section">
-                    <p>Change password:</p>
-                    <label>New Password</label>
-                    <input style="width: 275px;" id="text" type="password" name="password"><br>
+                    <label style="align-self: start;">New Password:</label>
+                    <input style="width: 275px;" id="text" type="password" name="password">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitPassword" value="Submit"><br><br>
                     <?php if ($emptyPassword == 1) { ?>
                         <p>Error: Field is empty. Please try again.<p>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Error: Field is empty. Please try again.
+                        </div>
                     <?php } ?>
                     <hr>
                 </div>
                  
                 <div class="account-section">
-                    <p>Change Address:</p>
-                    <label>New Address</label>
-                    <input style="width: 275px;" id="text" type="password" name="address"><br>
+                    <label style="align-self: start;">New Address:</label>
+                    <input style="width: 275px;" id="text" type="password" name="address">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitAddress" value="Submit"><br><br>
                     <?php if ($emptyPassword == 1) { ?>
-                        <p>Error: Field is empty. Please try again.<p>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Error: Field is empty. Please try again.
+                        </div>
                     <?php } ?>
                     <hr>
                 </div>
                  
                 <div class="account-section">
-                    <p>Change City:</p>
-                    <label>New City</label>
-                    <input style="width: 275px;" id="text" type="password" name="city"><br>
+                    <label style="align-self: start;">New City:</label>
+                    <input style="width: 275px;" id="text" type="password" name="city">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitCity" value="Submit"><br><br>
                     <?php if ($emptyPassword == 1) { ?>
-                        <p>Error: Field is empty. Please try again.<p>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Error: Field is empty. Please try again.
+                        </div>
                     <?php } ?> 
                     <hr>
                 </div>
                 
                 <div class="account-section">
-                    <p>Change State:</p>
-                    <label>New State</label>
-                    <input style="width: 275px;" id="text" type="password" name="state"><br>
+                    <label style="align-self: start;">New State:</label>
+                    <input style="width: 275px;" id="text" type="password" name="state">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitState" value="Submit"><br><br>
                     <?php if ($emptyPassword == 1) { ?>
-                        <p>Error: Field is empty. Please try again.<p>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Error: Field is empty. Please try again.
+                        </div>
                     <?php } ?> 
-                    <hr>
                 </div>
-                <hr>
-
                 <div class="account-section">
+                    <hr>
                     <button class="featured-out-of-stock"><a href="home.php">Back to home!</a><br></button>
                     <button class="featured-out-of-stock"><a href="logout.php">Click here to logout!</a><br></button>
                     <button class="featured-out-of-stock"><a href="deleteConfirmation.php">Delete account</a><br></button>
@@ -128,7 +141,35 @@ session_start();
                 </div>
                 
             </form>
-        </div>       
+        </div> 
+        <style>
+            .alert {
+            opacity: 1;
+            transition: opacity 0.6s; /* 600ms to fade out */
+            }
+        </style>
+
+        <script>
+            // Get all elements with class="closebtn"
+            var close = document.getElementsByClassName("closebtn");
+            var i;
+
+            // Loop through all close buttons
+            for (i = 0; i < close.length; i++) {
+            // When someone clicks on a close button
+                close[i].onclick = function(){
+
+                    // Get the parent of <span class="closebtn"> (<div class="alert">)
+                    var div = this.parentElement;
+
+                    // Set the opacity of div to 0 (transparent)
+                    div.style.opacity = "0";
+
+                    // Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+                    setTimeout(function(){ div.style.display = "none"; }, 600);
+                }
+            }
+        </script>      
     </body>
 
 </html>
