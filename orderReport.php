@@ -5,8 +5,17 @@ session_start();
 	include("functions.php");
 
     $user_data = check_login($con);
+    // $type = check_if_vendor_and_admin($con);
 //   $orders = query on orders table and return number of rows
 //	$totalSales = query on orders table and return sum of all totals
+    $query1 =  "SELECT COUNT(*) FROM orders";
+    $result1 = mysqli_query($con, $query1);
+    // $result1b = mysqli_fetch_row($result)[0];
+    $query2 =  "SELECT COUNT(*) FROM 'orders' WHERE 'in_store' = 1";
+    $result2 = mysqli_query($con, $query2);
+    $query3 = " SELECT SUM(total) FROM 'orders'";
+    $result3 = mysqli_query($con, $query3);
+
 ?>
 
 <!doctype HTML>
@@ -23,9 +32,9 @@ session_start();
     <button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
     <div id="box">
         <center>
-            <p>Orders placed: </p>
-            <p>Fulfilled online: </p>
-            <p>Fulfilled in-store:</p>
+            <p>Orders placed: <?php echo intval($result1);?></p>
+            <p>Pick-up orders: <?php echo $result2;?></p>
+            <p>Total sales: <?php echo $result3;?></p>
         </center>
     </div>
 </body>

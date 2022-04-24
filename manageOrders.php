@@ -35,41 +35,36 @@ session_start();
 					<th>Total</th>
 					<th>In-Store?</th>
 					<th>Fulfilled?</th>
-					<th>Shipping Type</th>
 					<th>Shipping Address</th>
 					<th>Date Placed</th>
 					<th></th>
 				</tr>
 				<?php foreach ($orders as $order) : ?>
 				<tr>
-					<td id="id<?php echo $order['id']?>">
-						<?php echo $order['id']?>
+					<td id="id<?php echo $order['id'];?>">
+						<?php echo $order['id'];?>
 					</td>
-					<td id="oNum<?php echo $order['id']?>">
-						<?php echo $order['orderNumber'] ?>
+					<td id="oNum<?php echo $order['id'];?>">
+						<?php echo $order['orderNumber']; ?>
 					</td>
-					<td id="user<?php echo $order['id']?>"><?php echo $order['user_name'] ?>
+					<td id="user<?php echo $order['id'];?>"><?php echo $order['user_name']; ?>
 					</td>
-					<td id="total<?php echo $order['id']?>"><?php echo $order['total'] ?>
+					<td id="total<?php echo $order['id'];?>"><?php echo $order['total']; ?>
 					</td>
-					<td id="in-store<?php echo $order['id']?>"><?php echo $order['in-store'] ?>
+					<td id="in-store<?php echo $order['id'];?>"><?php echo $order['in_store']; ?>
 					</td>
-					<td id="fulfilled<?php echo $order['id']?>"><?php echo $order['fulfilled'] ?>
+					<td id="fulfilled<?php echo $order['id'];?>"><?php echo $order['fulfilled']; ?>
 					</td>
-					<td id="shipping<?php echo $order['id']?>">
-						<?php echo $order['shipping'] ?>
+					<td id="address<?php echo $order['id'];?>">
+						<?php echo $order['address']; ?>
 					</td>
-					<td id="address<?php echo $order['id']?>">
-						<?php echo $order['address'] ?>
+					<td id="date<?php echo $order['id'];?>">
+						<?php echo $order['datePlaced']; ?>
 					</td>
-					<td id="date<?php echo $order['id']?>">
-						<?php echo $order['datePlaced'] ?>
-					</td>
-					<td id="buttons<?php echo $order['id']?>">
-						<button id="update<?php echo $order['id']?>"
-							onclick="location.href='updateOrder.php?id=<?php echo $order['id'] ?>'">update
-						</button> <button id="delete<?php echo $order['id']?>"
-							onclick="location.href='deleteOrder.php?id=<?php echo $order['id'] ?>'">delete</button>
+					<td id="buttons<?php echo $order['id'];?>">
+						<button id="update<?php echo $order['id'];?>"
+							onclick="location.href='updateOrder.php?id=<?php echo $order['id']; ?>'">update
+						</button>
 					</td>
 				</tr>
 				<?php endforeach?>

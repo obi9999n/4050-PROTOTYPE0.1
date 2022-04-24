@@ -25,12 +25,15 @@
 <body>
 	<button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
 	<center>
-		<div id="box">
-			<?php foreach ($products as $product) : ?>
+	<div class='container' style='display:flex'>
+
+					<?php foreach ($products as $product) : ?>
 				<?php
 				$sum += intval($product['stock']);				
 				?>
 			<?php endforeach ?>
+		<div id="box">
+
 			<p>Total books in inventory: <?php echo $sum?></p>
 		</div>
 		<div id="box">
@@ -43,6 +46,7 @@
 				?></p>
 			<?php endforeach ?>
 		</div>
+	</div>
 	</center>
 </body>
 
