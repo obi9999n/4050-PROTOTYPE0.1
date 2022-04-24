@@ -620,3 +620,8 @@ tr:hover {
 .closebtn:hover {
   color: black;
 }
+
+img {
+  border-radius: 50%;
+  width: 200px;
+}

@@ -26,22 +26,25 @@ session_start();
             $nonValidUsername = mysqli_query($con, $usernameQuery);
             $result_count = mysqli_num_rows($nonValidUsername);
 
-            if ($result_count == 0) {
-                // save to database
-                $user_id = random_num(20);
-                $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', '0')";
-            
-                // save
-                mysqli_query($con, $query);
-
-                // send to login page
-                echo "<script type='text/javascript'>document.location.href='verification.php?name=$first_name&email=$email';</script>";
-                die;
-
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = 1;
             } else {
-                $validUsername = 1;
+                if ($result_count == 0) {
+                    // save to database
+                    $user_id = random_num(20);
+                    $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type, profile_pic) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', '0', 'images/default.jpeg')";
+                
+                    // save
+                    mysqli_query($con, $query);
+    
+                    // send to login page
+                    echo "<script type='text/javascript'>document.location.href='verification.php?name=$first_name&email=$email';</script>";
+                    die;
+    
+                } else {
+                    $validUsername = 1;
+                }
             }
-
         } else {
             $validInfoNeeded = 1;
         }
@@ -131,6 +134,10 @@ session_start();
         <form method="post">
             <b><div style="font-size: 20px; margin-right: 10px; padding-bottom: 10px; color: black">Account Registration</div></b>
             <hr style="margin: 8px;">
+            <?php if ($emailErr == 1) { ?>
+				<?php $emailErr = 0; ?>
+				<center><p>Not a valid email address. Please try again.</p></center>
+			<?php } ?>
             <?php if ($validInfoNeeded == 1) { ?>
 				<?php $validInfoNeeded = 0; ?>
 				<center><p>Please enter some valid information.</p></center>
@@ -170,7 +177,7 @@ session_start();
             <label>Birthday</label>
             <input id="text" type="date" name="birthday"><br><br>
             <input style="width: 475px;" id="button" type="submit" value="Signup"><br><br>
-            <a href="login.php">Back to login</a>
+            <center><a href="login.php">Back to Login!</a></center>
         </form>
     </div>
     </div>

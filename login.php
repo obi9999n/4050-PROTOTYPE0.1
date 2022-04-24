@@ -145,10 +145,10 @@ session_start();
 			
             <div class="login-section">
                 <label>Remember me</label>
-                <input type="checkbox" value="1" name="check"><br><br>
+                <input type="checkbox" value="1" name="check"><br>
             </div>
 			<div class="login-section">
-                <input style="width: 260px;" id="button" type="submit" value="Login"><br><br>
+                <input style="width: 260px;" id="button" type="submit" value="Login"><br>
                 <center><a href="signup.php">Click to Signup!</a><br></center>
                 <center><a href="forgotPassword.php">Forgot Password?</a><br></center>
             </div>

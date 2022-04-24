@@ -139,7 +139,7 @@ session_start();
             </div>
 			
 			<div class="login-section">
-                <input style="width: 260px;" id="button" type="submit" value="Change password"><br><br>
+                <input style="width: 260px;" id="button" type="submit" value="Change password!"><br>
                 <center><a href="login.php">Click to Login!</a><br></center>
             </div>
             

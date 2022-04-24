@@ -64,7 +64,8 @@ session_start();
     </head>
 
     <body>
-        <center><p style="margin-top: 0px; margin-bottom: 0px;">Welcome <?php echo $user_data['user_name']; ?>!<br></center>
+        <center><p style="margin-top: 0px; margin-bottom: 0px;">Welcome <?php echo $user_data['user_name']; ?>!<br><br></center>
+        <center><a href="changeProfilePic.php"><img src="<?php echo $user_data['profile_pic']; ?>"></a><br><br></center>
         <div id="box">
             <form class="form1" method="post">
                 <div class="account-section">
@@ -92,7 +93,6 @@ session_start();
                     <input style="width: 275px;" id="text" type="password" name="password">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitPassword" value="Submit"><br><br>
                     <?php if ($emptyPassword == 1) { ?>
-                        <p>Error: Field is empty. Please try again.<p>
                         <div class="alert">
                             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                             Error: Field is empty. Please try again.
@@ -141,6 +141,9 @@ session_start();
                 <div class="account-section">
                     <hr>
                     <?php $user_type = $user_data['user_type']; ?>
+                    <?php if ($user_type == 0) { ?>
+                        <button class="featured-out-of-stock"><a href="#">Past orders!</a><br></button>
+                    <?php } ?>
                     <button class="featured-out-of-stock"><a href="home.php">Back to home!</a><br></button>
                     <button class="featured-out-of-stock"><a href="logout.php">Click here to logout!</a><br></button>
                     <?php if ($user_type == 0) { ?>
