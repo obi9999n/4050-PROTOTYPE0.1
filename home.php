@@ -111,18 +111,20 @@ session_start();
         </div>
     </div>
 
-    <div class="subscribe">
+    <!--- <div class="subscribe">
         <h2 class="subscribe__title">SUBSCRIBE TO THE ATLANTA BOOKSTORE NEWSLETTER</h2>
         <p class="subscribe__copy">Subscribe to keep up with our latest releases and other exciting updates.</p>
-        <div class="form">
-            <input type="email" class="form__email" placeholder="Enter your email address" />
-            <button class="form__button">Send</button>
-        </div>
+        <form method="post">
+            <div class="form">
+                <input type="email" class="form__email" placeholder="Enter your email address" />
+                <button class="form__button">Send</button>
+            </div>
+        </form>
         <div class="notice">
             <input type="checkbox">
             <span class="notice">I agree to my email address being used to recieve monthly newsletter.</span>
         </div>
-    </div>
+    </div> --->
 
     <div class="social-call">
         <!---social-links-------->

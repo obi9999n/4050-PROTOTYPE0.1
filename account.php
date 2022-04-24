@@ -57,6 +57,17 @@ session_start();
                 $emptyAddress = 1;
             }
         }
+        if ($_POST['newsletter']) {
+            if ($user_data['newsletter'] == 0) {
+                $query = "update users set newsletter = '1' where user_id = '$user_id'";
+                mysqli_query($con, $query);
+            } else {
+                $query = "update users set newsletter = '0' where user_id = '$user_id'";
+                mysqli_query($con, $query);
+            }
+            header("Location: account.php");
+            die;
+        }
     }
 
 ?>
@@ -146,8 +157,13 @@ session_start();
                 <div class="account-section">
                     <hr>
                     <?php $user_type = $user_data['user_type']; ?>
-                    <?php if ($user_type == 0) { ?>
-                        <button class="featured-out-of-stock"><a href="#">Past orders!</a><br></button>
+                    <?php $newsletter = $user_data['newsletter']; ?>
+                    <?php if ($user_type == 0) { 
+                            if ($newsletter == 0) { ?>
+                                <input class="featured-out-of-stock" id="button" type="submit" name="newsletter" value="Subscribe to our newsletter!">
+                        <?php } else { ?>
+                                <input class="featured-out-of-stock" style="width: 225px;" id="button" type="submit" name="newsletter" value="Unsubscribe from our newsletter!">
+                        <?php } ?>
                     <?php } ?>
                     <button class="featured-out-of-stock"><a href="home.php">Back to home!</a><br></button>
                     <button class="featured-out-of-stock"><a href="logout.php">Click here to logout!</a><br></button>
