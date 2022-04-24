@@ -99,7 +99,8 @@ session_start();
                                         <hr style="margin-top:0px; margin-left:0px; margin-right:20px; " >
 
                                         <div class="modal-right">
-                                            <p style="text-align:left;">Price: $<?php echo $product['listPrice']; ?></p>                                            
+                                            <p style="text-align:center; margin-top:3px"><?php echo $product['description']; ?></p>
+                                            <p style="text-align:center;">Price: $<?php echo $product['listPrice']; ?></p>                                           
                                         </div>
                                         <div class="modal-right-button">
                                             <!--
