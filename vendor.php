@@ -20,7 +20,7 @@ session_start();
 </head>
 
 <body>
-<button onclick="location.href='home.php'" style="margin: 15px;">Return to home</button>
+<button onclick="location.href='account.php'" style="margin: 15px;">Return to settings</button>
 	<center>
 		<p>Welcome vendor!</p><br>
 		<div class='container' style='display:flex'>

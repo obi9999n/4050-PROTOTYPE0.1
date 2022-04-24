@@ -6,6 +6,7 @@ session_start();
 
     $validInfoNeeded = 0;
     $validUsername = 0;
+    $emailErr = 0;
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         //something was posted
