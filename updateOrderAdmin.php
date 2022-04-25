@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="css/account.css">
 	<button onclick="location.href='admin.php'" style="margin: 15px;">Go back</button>
 	<center>
-		<h1>Updating #<?php echo $oNum ?></h1>
+		<h1>Updating Order</h1>
 	</center>
 </head>
 
