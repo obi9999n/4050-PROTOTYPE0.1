@@ -11,6 +11,9 @@ session_start();
     $users = mysqli_query($con, $queryUsers);
     $queryProducts = 'SELECT * FROM products WHERE categoryID = 2';
     $products = mysqli_query($con, $queryProducts); 
+    $queryOrders = 'SELECT * FROM orders';
+    $orders = mysqli_query($con, $queryOrders); 
+
 
 ?>
 
@@ -18,6 +21,7 @@ session_start();
 <html lang="english">
     <head>
         <link rel="stylesheet" href="css/account.css">
+        <link rel="stylesheet" href="css/manageInventory.css">
         <center><h1>Admin Controls</h1></center>
     </head>
 
@@ -37,6 +41,8 @@ session_start();
             <div class="tab">
                 <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'London')">Manage Users</button>
                 <button class="tablinks" onclick="openCity(event, 'Paris')">Manage Catalog</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Manage Orders</button>
+
             </div>
 
             <!-- Tab content -->
@@ -150,6 +156,52 @@ session_start();
                         <td></td>
                         <td><button onclick="location.href='additemadmin.php'">Add book</button></td>
                     </tr>
+                </table>
+            </div>
+        </center>
+        <center>
+            <div id="Tokyo" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Order Number</th>
+                        <th>User</th>
+                        <th>Total</th>
+                        <th>In-Store?</th>
+                        <th>Fulfilled?</th>
+                        <th>Shipping Address</th>
+                        <th>Date Placed</th>
+                        <th></th>
+                    </tr>
+                    <?php foreach ($orders as $order) : ?>
+                    <tr>
+                        <td id="id<?php echo $order['id'];?>">
+                            <?php echo $order['id'];?>
+                        </td>
+                        <td id="oNum<?php echo $order['id'];?>">
+                            <?php echo $order['orderNumber']; ?>
+                        </td>
+                        <td id="user<?php echo $order['id'];?>"><?php echo $order['user_name']; ?>
+                        </td>
+                        <td id="total<?php echo $order['id'];?>"><?php echo $order['total']; ?>
+                        </td>
+                        <td id="in-store<?php echo $order['id'];?>"><?php echo $order['in_store']; ?>
+                        </td>
+                        <td id="fulfilled<?php echo $order['id'];?>"><?php echo $order['fulfilled']; ?>
+                        </td>
+                        <td id="address<?php echo $order['id'];?>">
+                            <?php echo $order['address']; ?>
+                        </td>
+                        <td id="date<?php echo $order['id'];?>">
+                            <?php echo $order['datePlaced']; ?>
+                        </td>
+                        <td id="buttons<?php echo $order['id'];?>">
+                            <button id="update<?php echo $order['id'];?>"
+                                onclick="location.href='updateOrderAdmin.php?id=<?php echo $order['id']; ?>'">update
+                            </button>
+                        </td>
+                    </tr>
+                    <?php endforeach?>
                 </table>
             </div>
         </center>
