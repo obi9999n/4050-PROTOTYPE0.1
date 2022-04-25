@@ -66,6 +66,10 @@
 				<label for="imagePath">image path (.jpeg) </label><br>
 				<input type="text" name="imagePath" style="width:275px">
 			</div>
+			<div style="display:inline-block">
+				<label for="description">Description</label><br>
+				<input type="text" name="description" style="width:275px">
+			</div>
 			<input type="submit" value="add book"></input>
 		</form>
 
