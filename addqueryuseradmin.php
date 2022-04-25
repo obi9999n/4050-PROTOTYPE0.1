@@ -33,7 +33,7 @@ session_start();
                 if ($result_count == 0) {
                     // save to database
                     $user_id = random_num(20);
-                    $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type, profile_pic,verified) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', 0, 'images/default.jpeg', 0)";                
+                    $query = "insert into users (user_id, firstName, lastName, email, address, city, state, zipCode, user_name, password, birthday, user_type, profile_pic, verified, newsletter ) values ('$user_id', '$first_name', '$last_name', '$email', '$address', '$city', '$state', '$zip_code', '$user_name', '$password', '$birthday', 0, 'images/default.jpeg', 0, 0)";                
                     // save
                     mysqli_query($con, $query);
     
