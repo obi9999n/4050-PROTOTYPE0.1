@@ -9,7 +9,7 @@
     $total = $_GET['total'];
     // from checkout page, send orderNumber as url param to this page
     // retrieve from _GET array
-	$query = "DELETE * FROM cart";
+	// $query = "DELETE * FROM cart";
     
 ?>
 <!doctype HTML>
