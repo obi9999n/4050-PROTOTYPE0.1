@@ -71,7 +71,7 @@ session_start();
                         </td>
                         <td id="buttons<?php echo $user['user_id']?>" class="data">
                             <button id="save<?php echo $user['user_id']?>"
-                                onclick="location.href='updateuseradmin.php?id=<?php echo $user['user_id'] ?>'">Update </button> 
+                                onclick="location.href='adduseradmin.php?id=<?php echo $user['user_id'] ?>'">Update </button> 
                                 <button
                                 id="delete<?php echo $user['user_id']?>">Delete</button>
                         </td>
@@ -79,13 +79,13 @@ session_start();
                     <?php endforeach?>
 
                     <tr>
-                        <td><input type="text" style="width:40px"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text" style="width:125px"></td>
-                        <td><input type="text" style="width:75px"></td>
-                        <td><input type="text" style="width:125px"></td>
-                        <td><button>add</button></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button onclick="location.href='addqueryuseradmin.php'">Add user</button></td>
                     </tr>
                 </table>
             </div>
