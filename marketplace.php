@@ -91,14 +91,13 @@ session_start();
             <p id="topbannertitle">Marketplace</p> 
         </div>
 
-        <div class="dropdown">
+        <!-- <div class="dropdown">
                 <button style="color: black;" class="dropbtn">Filter by:</button>
                 <div class="dropdown-content">
                     <a href="#">Genre</a>
-                    <a href="#">Bestsellers</a>
-                    <a href="#">E-Books</a>
+                    <a href="featured.php">Bestsellers</a>
                 </div>
-        </div>
+        </div> -->
         <div class="featured-items-container">
             <div class="featured-container">
                 <?php foreach ($products as $product) : ?>
