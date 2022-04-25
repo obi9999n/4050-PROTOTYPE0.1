@@ -59,8 +59,12 @@
 				<input type="text" name="listPrice" style="width:75px">
 			</div>
 			<div style="display:inline-block">
-				<label for="listPrice">best seller? (0 or 1)</label><br>
+				<label for="isBestSeller">best seller? (0 or 1)</label><br>
 				<input type="text" name="isBestSeller">
+			</div>
+			<div style="display:inline-block">
+				<label for="description">Description</label><br>
+				<input type="text" name="description">
 			</div>
 			<div style="display:inline-block">
 				<label for="imagePath">image path (.jpeg) </label><br>

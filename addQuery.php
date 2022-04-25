@@ -24,7 +24,8 @@
 			$genre = $_GET['genre'];
 			$isBestSeller = $_GET['isBestSeller'];
 			$imagePath = $_GET['imagePath'];
-			$insertQuery = "INSERT INTO products(`categoryID`, `productCode`, `productName`, `author`, `ISBN`, `listPrice`, `stock`, `genre`, `isBestSeller`, `imagePath`, `inCart`) VALUES (2, '$productCode', '$productName', '$author', $isbn, $price, $stock, '$genre', $isBestSeller, '$imagePath', 0)";
+			$description = $_GET['description'];
+			$insertQuery = "INSERT INTO products(categoryID, productCode, productName, author, ISBN, listPrice, stock, genre, isBestSeller, description, imagePath, inCart) VALUES (2, '$productCode', '$productName', '$author', $isbn, $price, $stock, '$genre', $isBestSeller, '$description', '$imagePath', 0)";
 			$result = mysqli_query($con, $insertQuery);
 		} else {
 			echo '<script>alert("No blank input allowed")</script>';
