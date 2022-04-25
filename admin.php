@@ -7,7 +7,7 @@ session_start();
     $user_data = check_login($con);
     $type = check_if_admin($con);
 
-    $queryUsers = 'SELECT * FROM users WHERE user_type = 0';
+    $queryUsers = 'SELECT * FROM users WHERE user_type = 0 OR user_type = 2';
     $users = mysqli_query($con, $queryUsers);
     $queryProducts = 'SELECT * FROM products WHERE categoryID = 2';
     $products = mysqli_query($con, $queryProducts); 

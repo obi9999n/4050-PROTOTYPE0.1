@@ -117,7 +117,7 @@ session_start();
                     <hr>
                 </div>
                  
-                <div class="account-section">
+                <!-- <div class="account-section">
                     <label style="align-self: start;">New Address:</label>
                     <input style="width: 275px;" id="text" type="password" name="address">
                     <input class="featured-out-of-stock3" style="width: 275px;" id="button" type="submit" name="submitAddress" value="Submit"><br><br>
@@ -153,7 +153,7 @@ session_start();
                             Error: Field is empty. Please try again.
                         </div>
                     <?php } ?> 
-                </div>
+                </div> -->
                 <div class="account-section">
                     <hr>
                     <?php $user_type = $user_data['user_type']; ?>
