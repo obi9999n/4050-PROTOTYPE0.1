@@ -24,7 +24,6 @@
 </head>
 
 <body>
-	<button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
 	<center>
 	<div class='container' style='display:flex'>
 
@@ -48,6 +47,7 @@
 			<?php endforeach ?>
 		</div>
 	</div>
+	<a href="vendor.php">Go back</a>
 	</center>
 </body>
 

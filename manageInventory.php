@@ -15,12 +15,12 @@ session_start();
 <html lang="english">
 
 <head>
-	<title>Manage inventory</title>
+	<title>Manage Inventory</title>
 	<link rel="stylesheet" href="css/account.css">
 	<link rel="stylesheet" href="css/manageInventory.css">
 	<button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
 	<center>
-		<h1>Manage inventory</h1>
+		<h1>Manage Inventory</h1>
 	</center>
 </head>
 

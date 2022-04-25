@@ -19,9 +19,9 @@ session_start();
         <center><p>Welcome <?php echo $user_data['user_name']; ?>!<br></center>
         <div id="box">
             <center><p>Are you sure you want to delete your account?</p></center>
-            <form method="post">
-                <button type="submit" name="No"><a href="account.php">No, take me back!</a></button>
-                <button type="submit" name="Yes"><a href="delete.php?userID=<?php echo $user_data['user_id']; ?>">Yes</a></button>
+            <center><form method="post">
+                <button style="background-color: #e7e7e7; color: blue;" type="submit" name="No"><a href="account.php">No, take me back!</a></button>
+                <button style="background-color: #e7e7e7; color: blue;" type="submit" name="Yes"><a href="delete.php?userID=<?php echo $user_data['user_id']; ?>">Yes</a></button>
             </form>
         </div>       
     </body>

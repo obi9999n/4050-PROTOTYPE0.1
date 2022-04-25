@@ -29,13 +29,13 @@ session_start();
     </head>
 
     <body>
-    <button onclick="location.href='vendor.php'" style="margin: 15px;">Go back</button>
         <div id="box">		   
             <center>
 			  Orders placed today: <?php echo $result_count1  ?> <br>
 			  Today's sales: <?php echo $sum  ?>
 		  </center>
-        </div>       
+        </div> 
+	    <center><a href="vendor.php">Go back</a>
     </body>
 
 </html>

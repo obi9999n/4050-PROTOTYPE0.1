@@ -9,7 +9,11 @@
     $total = $_GET['total'];
     // from checkout page, send orderNumber as url param to this page
     // retrieve from _GET array
-	// $query = "DELETE * FROM cart";
+	
+	$query = "DELETE FROM cart";
+	mysqli_query($con, $query);
+	$queryProducts = "UPDATE products SET inCart = '0' WHERE inCart != '0'";
+    mysqli_query($con, $queryProducts);
     
 ?>
 <!doctype HTML>

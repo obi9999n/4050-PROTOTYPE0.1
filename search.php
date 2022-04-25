@@ -122,7 +122,7 @@ session_start();
                                                                 <button style="margin-left: 10px; background-color: darkred;" class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>                                                            <?php } ?>
                                                         <?php } else { ?>
                                                             <?php if ($product['inCart'] >= 1 && $product['stock'] == 0) { ?>
-                                                                <button class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
+                                                                <button style="background-color: darkred;" class="featured-out-of-stock"><a href="removeFromCart.php?productID=<?php echo $product['productID']; ?>">REMOVE FROM CART</a></button>
                                                             <?php } else { ?>
                                                                 <button class="featured-out-of-stock">OUT OF STOCK</button>
                                                             <?php } ?>
