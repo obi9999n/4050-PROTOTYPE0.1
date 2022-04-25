@@ -79,7 +79,7 @@ session_start();
                             <button id="save<?php echo $user['user_id']?>"
                                 onclick="location.href='updateUserAdmin1.php?id=<?php echo $user['user_id'] ?>'">Update </button> 
                                 <button
-                                id="delete<?php echo $user['user_id']?>">Delete</button>
+                                id="delete<?php echo $user['user_id']?>" onclick="location.href='deleteUserAdmin.php?id=<?php echo $user['user_id'] ?>'">Delete</button>
                         </td>
                     </tr>
                     <?php endforeach?>
