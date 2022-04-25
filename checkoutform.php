@@ -18,6 +18,7 @@
   $result_count1 = mysqli_num_rows($products1);
   $orderNum = rand(10000,99999);
   $hasPromo = false;
+  $promoPercent = 0;
 foreach ($products1 as $product){
 	     $sum+=$product['listPrice'];
 
@@ -26,6 +27,7 @@ foreach ($promos as $promo){
 	if ($_REQUEST['code'] == $promo['promocode']){
 	$promosum = $sum * ((100 - $promo['promopercent'])/100);
 	$hasPromo = true;
+  $promoPercent = $promo['promopercent'];
 	}
 }
 	$sum = number_format($sum, 2, '.', '');
@@ -248,6 +250,7 @@ foreach ($promos as $promo){
         <label for="promo">Promo Code<input type="text" id ="code" name="code"></label>
         <input type="submit" value="Add Promo" class="btn">        
 		<?php if ($hasPromo == true):?>
+      <p>Promo <span class="price" style="color:black"><b><?php echo $promoPercent;?>%</b></span></p>		
 			<p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $promosum;?></b></span></p>		  
 		<?php endif ?>
       </form>
