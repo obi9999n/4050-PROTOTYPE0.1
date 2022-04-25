@@ -182,8 +182,8 @@ session_start();
         </div> 
         <style>
             .alert {
-            opacity: 1;
-            transition: opacity 0.6s; /* 600ms to fade out */
+                opacity: 1;
+                transition: opacity 0.6s; /* 600ms to fade out */
             }
         </style>
 
