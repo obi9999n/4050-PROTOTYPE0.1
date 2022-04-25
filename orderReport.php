@@ -16,7 +16,6 @@ session_start();
     $query2 =  "SELECT * FROM orders WHERE in_store = 1";
     $result2 = mysqli_query($con, $query2);
     $result_count2 = mysqli_num_rows($result2);
-    
     $allSales = "SELECT * FROM orders";
     $sales = mysqli_query($con, $allSales);
     foreach ($sales as $sale) :
