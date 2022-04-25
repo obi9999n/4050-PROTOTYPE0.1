@@ -63,7 +63,7 @@ session_start();
 					</td>
 					<td id="buttons<?php echo $order['id'];?>">
 						<button id="update<?php echo $order['id'];?>"
-							onclick="location.href='updateOrder.php?id=<?php echo $order['id']; ?>'">update
+							onclick="location.href='updateOrder.php?id=<?php echo $order['id']; ?>&oNum=<?php echo $order['orderNumber']; ?>'">update
 						</button>
 					</td>
 				</tr>
