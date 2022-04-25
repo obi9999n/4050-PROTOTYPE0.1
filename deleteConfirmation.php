@@ -20,7 +20,7 @@ session_start();
         <div id="box">
             <center><p>Are you sure you want to delete your account?</p></center>
             <form method="post">
-                <button type="submit" name="No"><a href="account.php">No</a></button>
+                <button type="submit" name="No"><a href="account.php">No, take me back!</a></button>
                 <button type="submit" name="Yes"><a href="delete.php?userID=<?php echo $user_data['user_id']; ?>">Yes</a></button>
             </form>
         </div>       
