@@ -248,7 +248,7 @@ foreach ($promos as $promo){
         <label for="promo">Promo Code<input type="text" id ="code" name="code"></label>
         <input type="submit" value="Add Promo" class="btn">        
 		<?php if ($hasPromo == true):?>
-			<p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $sum;?></b></span></p>		  
+			<p>Total with Promo <span class="price" style="color:black"><b>$<?php echo $promosum;?></b></span></p>		  
 		<?php endif ?>
       </form>
     </div>
