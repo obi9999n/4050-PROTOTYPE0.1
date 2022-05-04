@@ -7,6 +7,14 @@ database info:
 	- orders table:
 		in_store: 0 - online; 1 - in-store
 		fulfilled: 0 - not fulfilled; 1 - fulfilled. vendor changes flag using manage inventory.
+	- categories table:
+		different categories
+	- products:
+		has all the books
+	- promos:
+		has all the promos on the website
+	- cart:
+		has all of the books users put in their cart
 		
 in order to run:
 	- download and start XAMPP
