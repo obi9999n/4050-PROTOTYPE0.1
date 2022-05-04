@@ -21,7 +21,7 @@ in order to run:
 	- download the folder and put it in htdocs folder of XAMPP
 	- go to 'localhost:8080/phpmyadmin' and create a database called 'project'
 	- in your new database called 'project', drag the 'project.sql' file into 'project' database and refresh
-	- then, type in 'http://localhost:8080/4050-PROTOTYPE0.1/home.php' to get to the home page
+	- then, type in 'http://localhost:8080/4050-PROTOTYPE0.1-main/home.php' to get to the home page
 	- in order to see logins, just go to the users table or create your own account
 	- for registration code from signup page, the code will not be sent to your email, the code will be in the link of the registration page
 
